@@ -2,7 +2,7 @@ import React from 'react'
 
 const Playground = () => {
   return (
-    <div>Playground</div>
+    <div>this is my Playground</div>
   )
 }
 
