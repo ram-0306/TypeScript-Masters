@@ -19,7 +19,7 @@ import {
   rem,
   useMantineTheme,
 } from '@mantine/core';
-import {MantineLogo}  from '@mantinex/mantine-logo';
+// import {MantineLogo}  from '@mantinex/mantine-logo';
 import  {useDisclosure} from '@mantine/hooks';
 import {
   IconNotification,
@@ -31,6 +31,7 @@ import {
   IconChevronDown,
 } from '@tabler/icons-react';
 import classes from './navbar.module.css';
+import Link from 'next/link';
 
 const mockdata = [
   {
@@ -91,8 +92,14 @@ const Navbar =()=> {
   return (
     <Box pb={120}>
       <header className={classes.header}>
-        <Group justify="space-between" h="100%">
-          <MantineLogo size={30} />
+        <Group justify="space-between"  h="100%">
+           <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/2048px-Typescript_logo_2020.svg.png"
+            className="img-fluid rounded-top"style={{height:30}}
+            alt=""
+           />
+           <h1>TypeScript Master</h1>
+
 
           <Group h="100%" gap={0} visibleFrom="sm">
             <a href="#" className={classes.link}>
@@ -151,8 +158,8 @@ const Navbar =()=> {
           </Group>
 
           <Group visibleFrom="sm">
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
+            <Link href={"/login"}><Button variant="default">Log in</Button></Link>
+            <Link href={"signup"} ><Button>Sign up</Button></Link>
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
