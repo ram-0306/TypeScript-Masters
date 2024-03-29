@@ -5,7 +5,7 @@ import { HomeHeader } from './HomeHeader';
 export default function Home() {
   return (
     <>
-    <HomeHeader/>
+      <HomeHeader />
       <div className={classes.hero}>
         <Overlay
           gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, .65) 40%)"

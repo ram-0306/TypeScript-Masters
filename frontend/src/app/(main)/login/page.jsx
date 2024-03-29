@@ -79,6 +79,7 @@ const Login = () => {
               error={form.errors.password && 'Password should include at least 6 characters'}
               radius="md"
             />
+          
 
             {type === 'register' && (
               <Checkbox
