@@ -152,8 +152,8 @@ const Navbar =()=> {
             <a href="#" className={classes.link}>
               Learn
             </a>
-            <a href="#" className={classes.link}>
-              Academy
+            <a href="/about" className={classes.link}>
+              About 
             </a>
           </Group>
 

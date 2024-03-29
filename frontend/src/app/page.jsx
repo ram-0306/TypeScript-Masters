@@ -13,13 +13,12 @@ export default function Home() {
           zIndex={0}
         />
         <Container className={classes.container} size="md">
-          <Title className={classes.title}>A fully featured React components library</Title>
+          <Title className={classes.title}>Unlock the power of TypeScript with TypeScript Masters</Title>
           <Text className={classes.description} size="xl" mt="xl">
-            Build fully functional accessible web applications faster than ever – Mantine includes
-            more than 120 customizable components and hooks to cover you in any situation
+          Your ultimate destination for mastering TypeScript and accelerating your development journey.
           </Text>
 
-          <Button variant="gradient" size="xl" radius="xl" className={classes.control}>
+         <Button variant="gradient" size="xl" radius="xl" className={classes.control}>
             Get started
           </Button>
         </Container>

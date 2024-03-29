@@ -16,21 +16,21 @@ import classes from './about.module.css';
 
 const mockdata = [
   {
-    title: 'Extreme performance',
+    title: 'Seamless Transition',
     description:
-      'This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit',
+      'Effortlessly convert your existing JavaScript projects into TypeScript with our user-friendly conversion tools and streamlined process. Say goodbye to compatibility issues and hello to enhanced code maintainability and productivity.',
     icon: IconGauge,
   },
   {
-    title: 'Privacy focused',
+    title: 'Enhancing Proficiency',
     description:
-      'People say it can run at the same speed as lightning striking, Its icy body is so cold, it will not melt even if it is immersed in magma',
+      'It includes comprehensive learning resources, advanced tutorials, and practical exercises designed to deepen understanding and enhance skills.',
     icon: IconUser,
   },
   {
-    title: 'No third parties',
+    title: 'Fostering Community Engagement',
     description:
-      'They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves',
+      'Facilitating collaboration, knowledge sharing, and skill development among TypeScript enthusiasts',
     icon: IconCookie,
   },
 ];
@@ -57,17 +57,16 @@ const About = ()=> {
     <Container size="lg" py="xl">
       <Group justify="center">
         <Badge variant="filled" size="lg">
-          Best company ever
+          Best TypeScript Platform
         </Badge>
       </Group>
 
       <Title order={2} className={classes.title} ta="center" mt="sm">
-        Integrate effortlessly with any technology stack
+      Empowering Developers with Next-Generation TypeScript Mastery
       </Title>
 
       <Text c="dimmed" className={classes.description} ta="center" mt="md">
-        Every once in a while, you’ll see a Golbat that’s missing some fangs. This happens when
-        hunger drives it to try biting a Steel-type Pokémon.
+      Simplifying Transition, Enhancing Proficiency, and Fostering Community Engagement
       </Text>
 
       <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>
