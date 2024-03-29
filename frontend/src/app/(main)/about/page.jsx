@@ -1,3 +1,4 @@
+'use client';
 import {
   Badge,
   Group,
@@ -34,8 +35,8 @@ const mockdata = [
   },
 ];
 
-const About =()=> {
-//  const theme = useMantineTheme();
+const About = ()=> {
+  const theme = useMantineTheme();
   const features = mockdata.map((feature) => (
     <Card key={feature.title} shadow="md" radius="md" className={classes.card} padding="xl">
       <feature.icon
