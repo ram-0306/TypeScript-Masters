@@ -4,7 +4,9 @@ import React from 'react'
 
 const Template = ({ children }) => {
     return (
-        <SnackbarProvider>{children}</SnackbarProvider>
+        <SnackbarProvider>
+            {children}
+        </SnackbarProvider>
     )
 }
 
