@@ -186,7 +186,7 @@ import {
             </UnstyledButton>
             <Collapse in={linksOpened}>{links}</Collapse>
             <a href="#" className={classes.link}>
-              Learn
+              Learn 
             </a>
             <a href="#" className={classes.link}>
               Academy

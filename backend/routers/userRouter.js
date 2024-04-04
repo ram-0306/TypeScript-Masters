@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Model = require('../models/userModel');
+const Feedback = require('../models/Feedback');
+
 
 router.post('/add', (req, res) => {
     console.log(req.body);
@@ -47,5 +49,29 @@ router.put( '/update/:id', (req, res) => {
         res.status(500).json(err);
     });
 })
+router.post('/feedback/add', async (req, res) => {
+    try {
+      // Extract data from request body
+      const { name, email, subject, message } = req.body;
+  
+      // Create a new feedback document
+      const feedback = new Feedback({
+        name,
+        email,
+        subject,
+        message
+      });
+  
+      // Save the feedback document to the database
+      await feedback.save();
+  
+      // Respond with success message
+      res.status(201).json({ message: 'Feedback submitted successfully' });
+    } catch (error) {
+      console.error('Error submitting feedback:', error);
+      // Respond with error message
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
 
 module.exports = router;
