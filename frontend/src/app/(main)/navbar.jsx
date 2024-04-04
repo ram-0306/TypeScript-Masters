@@ -90,7 +90,7 @@ const Navbar =()=> {
   ));
 
   return (
-    <Box pb={120}>
+    <Box pb={100} >
       <header className={classes.header}>
         <Group justify="space-between"  h="100%">
            <img
@@ -101,7 +101,7 @@ const Navbar =()=> {
            <h1>TypeScript Master</h1>
 
 
-          <Group h="100%" gap={0} visibleFrom="sm">
+          <Group h="100%" gap={0} visibleFrom="sm" mb={50}>
             <a href="#" className={classes.link}>
               Home
             </a>
@@ -159,7 +159,7 @@ const Navbar =()=> {
 
           <Group visibleFrom="sm">
             <Link href={"/login"}><Button variant="default">Log in</Button></Link>
-            <Link href={"signup"} ><Button>Sign up</Button></Link>
+            <Link href={"/signup"} ><Button>Sign up</Button></Link>
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />

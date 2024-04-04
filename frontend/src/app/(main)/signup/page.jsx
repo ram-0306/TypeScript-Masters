@@ -20,7 +20,7 @@ import { TwitterButton } from './TwitterButton';
 import Link from 'next/link';
 import { enqueueSnackbar } from 'notistack';
 
-const Login = () => {
+const Signup = () => {
   const [type, toggle] = useToggle(['login', 'register']);
   const form = useForm({
     initialValues: {
@@ -140,4 +140,4 @@ const Login = () => {
     </Container>
   );
 }
-export default Login;
+export default Signup;
