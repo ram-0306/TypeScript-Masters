@@ -41,60 +41,8 @@ export default function GetInTouchPage() {
   };
 
   return (
-    <div style={{ maxWidth: '600px', margin: 'auto', padding: '20px' }}>
-      <Title
-        order={2}
-        size="xl"
-        style={{ fontFamily: 'Arial, sans-serif', textAlign: 'center', marginBottom: '20px' }}
-        fw={900}
-      >
-        Give Us Feedback
-      </Title>
-
-      <form onSubmit={form.onSubmit(feedbackSubmit)} style={{ marginBottom: '20px' }}>
-        <SimpleGrid cols={{ base: 1, sm: 2 }} gap="md">
-          <TextInput
-            label="Name"
-            placeholder="Your name"
-            name="name"
-            variant="filled"
-            {...form.getInputProps('name')}
-          />
-          <TextInput
-            label="Email"
-            placeholder="Your email"
-            name="email"
-            variant="filled"
-            {...form.getInputProps('email')}
-          />
-        </SimpleGrid>
-
-        <TextInput
-          label="Subject"
-          placeholder="Subject"
-          mt="md"
-          name="subject"
-          variant="filled"
-          {...form.getInputProps('subject')}
-        />
-        <Textarea
-          mt="md"
-          label="Feedback"
-          placeholder="Your Feedback"
-          maxRows={10}
-          minRows={5}
-          autosize
-          name="message"
-          variant="filled"
-          {...form.getInputProps('message')}
-        />
-
-        <Group style={{ justifyContent: 'center', marginTop: '20px' }}>
-          <Button type="submit" size="lg">
-            Send Feedback
-          </Button>
-        </Group>
-      </form>
-    </div>
-  );
+    <div>Feedback</div>
+  )
 }
+
+export default Feedback

@@ -29,7 +29,7 @@ import {
     IconChevronDown,
   } from '@tabler/icons-react';
   import classes from './homeheader.module.css';
-// import Link from 'next/link';
+import Link from 'next/link';
   
   const mockdata = [
     {
@@ -150,8 +150,9 @@ import {
             </Group>
   
             <Group visibleFrom="sm">
-              <Button variant="default" href='/login'>Log in</Button>
-              <Button href = '/signup'>Sign up</Button>
+            
+              <Link href={"/login"}><Button variant="default">Log in</Button></Link>
+            <Link href={"/signup"} ><Button>Sign up</Button></Link>
             </Group>
   
             <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />

@@ -48,7 +48,11 @@ const Login = () => {
 
         <Divider label="Or continue with email" labelPosition="center" my="lg" />
 
-        <form onSubmit={form.onSubmit(() => { })}>
+        <form onSubmit={form.onSubmit((values) => { 
+              console.log(values);
+
+              
+        })}>
           <Stack>
             {type === 'register' && (
               <TextInput
