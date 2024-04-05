@@ -4,7 +4,7 @@ import { useForm } from '@mantine/form';
 import { enqueueSnackbar } from 'notistack';
 import { TextInput, Textarea, SimpleGrid, Group, Title, Button } from '@mantine/core';
 
-export default function GetInTouchPage() {
+ const Feedback = ()=>{
   const form = useForm({
     initialValues: {
       name: '',
@@ -45,4 +45,4 @@ export default function GetInTouchPage() {
   )
 }
 
-export default Feedback
+export default Feedback;
