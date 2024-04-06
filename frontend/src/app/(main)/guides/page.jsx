@@ -2,6 +2,7 @@
 import { useFormik } from 'formik';
 import { enqueueSnackbar } from 'notistack';
 import React from 'react'
+import { Container } from '@mantine/core';
 
 const Guides = () => {
 
@@ -18,7 +19,7 @@ const Guides = () => {
 
             // sending request to backend
 
-            fetch('http://localhost:5000/post/add', {
+            fetch('http://localhost:5000/guide/add', {
                 method: 'POST',
                 body : JSON.stringify(values), // convert js to json
                 headers: {
@@ -40,6 +41,7 @@ const Guides = () => {
     })
 
     return (
+       <Container>
         <div>
             <div className="container py-5">
                 <div className="card shadow">
@@ -113,6 +115,7 @@ const Guides = () => {
                 </div>
             </div>
         </div>
+        </Container>
     )
 }
 

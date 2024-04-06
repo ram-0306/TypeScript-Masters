@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const guideModel = require('../models/guideModel')
+const guideModel = require('../models/questionModel')
 
 router.post('/add', (req, res) => {
     console.log(req.body);

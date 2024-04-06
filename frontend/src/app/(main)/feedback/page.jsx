@@ -1,10 +1,8 @@
 'use client'
-import React from 'react';
+import { TextInput, Textarea, SimpleGrid, Group, Title, Button, Container } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { enqueueSnackbar } from 'notistack';
-import { TextInput, Textarea, SimpleGrid, Group, Title, Button } from '@mantine/core';
 
- const Feedback = ()=>{
+const feedback = () => {
   const form = useForm({
     initialValues: {
       name: '',
@@ -17,32 +15,86 @@ import { TextInput, Textarea, SimpleGrid, Group, Title, Button } from '@mantine/
       email: (value) => !/^\S+@\S+$/.test(value),
       subject: (value) => value.trim().length === 0,
     },
+
   });
 
-  const feedbackSubmit = async (values) => {
-    try {
-      const response = await fetch('http://localhost:5000/Feedback/add', {
-        method: 'POST',
-        body: JSON.stringify(values),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-      
-      if (response.ok) {
-        enqueueSnackbar('Feedback Submitted Successfully', { variant: 'success' });
-      } else {
-        enqueueSnackbar('Something went wrong', { variant: 'error' });
-      }
-    } catch (error) {
-      console.error(error);
-      enqueueSnackbar('Something went wrong', { variant: 'error' });
-    }
-  };
-
   return (
-    <div>Feedback</div>
-  )
+    <div>
+      <Container> 
+      <form onSubmit={form.onSubmit((values) => {
+        console.log(values);
+
+        fetch('http://localhost:5000/feedback/add', {
+          method: 'POST',
+          body: JSON.stringify(values),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+          .then((response) => {
+            console.log(response.status);
+
+          }).catch((err) => {
+            console.log(err);
+          });
+      })}>
+        <Title
+          order={2}
+          size="h1"
+          style={{ fontFamily: 'Greycliff CF, var(--mantine-font-family)' }}
+          fw={900}
+          ta="center"
+        >
+          Get in touch
+        </Title>
+
+        <SimpleGrid cols={{ base: 1, sm: 2 }} mt="xl">
+          <TextInput
+            label="Name"
+            placeholder="Your name"
+            name="name"
+            variant="filled"
+            {...form.getInputProps('name')}
+          />
+          <TextInput
+            label="Email"
+            placeholder="Your email"
+            name="email"
+            variant="filled"
+            {...form.getInputProps('email')}
+          />
+        </SimpleGrid>
+
+        <TextInput
+          label="Subject"
+          placeholder="Subject"
+          mt="md"
+          name="subject"
+          variant="filled"
+          {...form.getInputProps('subject')}
+        />
+        <Textarea
+          mt="md"
+          label="Message"
+          placeholder="Your message"
+          maxRows={10}
+          minRows={5}
+          autosize
+          name="message"
+          variant="filled"
+          {...form.getInputProps('message')}
+        />
+
+        <Group justify="center" mt="xl">
+          <Button type="submit" size="md">
+            Send message
+          </Button>
+        </Group>
+      </form>
+      </Container>
+    </div>
+  
+  );
 }
 
-export default Feedback;
+export default feedback;

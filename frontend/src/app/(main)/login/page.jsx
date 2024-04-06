@@ -35,7 +35,7 @@ const Login = () => {
   });
 
   return (
-    <Container size="md">
+    <Container size="sm">
       <Paper radius="md" p="xl" withBorder>
         <Text size="lg" fw={500}>
           Welcome to Mantine, {type} with

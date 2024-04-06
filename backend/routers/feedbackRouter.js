@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+
 const feedbackModel = require('../models/feedbackModel');
 
 
@@ -16,3 +17,5 @@ router.post('/add', (req, res) => {
     });
 
 });
+
+module.exports = router;

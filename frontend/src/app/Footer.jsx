@@ -59,16 +59,16 @@ const Footer = () => {
     <footer className={classes.footer}>
       <Container className={classes.inner}>
         <div className={classes.logo}>
-          <MantineLogo size={30} />
-          <Text size="xs" c="dimmed" className={classes.description}>
+          <Text size='xl'>TypeScript Masters</Text>
+          <Text size="xs" className={classes.description}>
             Build fully functional accessible web applications faster than ever
           </Text>
         </div>
         <div className={classes.groups}>{groups}</div>
       </Container>
       <Container className={classes.afterFooter}>
-        <Text c="dimmed" size="sm">
-          © 2020 mantine.dev. All rights reserved.
+        <Text color='white' size="sm" >
+          © 2024 typescriptmasters All rights reserved.
         </Text>
 
         <Group gap={0} className={classes.social} justify="flex-end" wrap="nowrap">

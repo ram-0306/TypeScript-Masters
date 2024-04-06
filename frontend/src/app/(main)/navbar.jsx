@@ -1,5 +1,4 @@
-'use client'
-import React from 'react';
+'use client';
 import {
   HoverCard,
   Group,
@@ -18,9 +17,9 @@ import {
   ScrollArea,
   rem,
   useMantineTheme,
+  Title,
 } from '@mantine/core';
-// import {MantineLogo}  from '@mantinex/mantine-logo';
-import  {useDisclosure} from '@mantine/hooks';
+import { useDisclosure } from '@mantine/hooks';
 import {
   IconNotification,
   IconCode,
@@ -66,13 +65,13 @@ const mockdata = [
   },
 ];
 
-const Navbar =()=> {
+const navbar = ()=> {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const theme = useMantineTheme();
 
-  const links = mockdata.map((item, index) => (
-    <UnstyledButton className={classes.subLink} key={index}>
+  const links = mockdata.map((item) => (
+    <UnstyledButton className={classes.subLink} key={item.title}>
       <Group wrap="nowrap" align="flex-start">
         <ThemeIcon size={34} variant="default" radius="md">
           <item.icon style={{ width: rem(22), height: rem(22) }} color={theme.colors.blue[6]} />
@@ -90,18 +89,12 @@ const Navbar =()=> {
   ));
 
   return (
-    <Box pb={100} >
+    <Box>
       <header className={classes.header}>
-        <Group justify="space-between"  h="100%">
-           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/2048px-Typescript_logo_2020.svg.png"
-            className="img-fluid rounded-top"style={{height:30}}
-            alt=""
-           />
-           <h1>TypeScript Master</h1>
+        <Group justify="space-between" h="100%">
+          <Title order={3}>TypeScript Masters</Title>
 
-
-          <Group h="100%" gap={0} visibleFrom="sm" mb={50}>
+          <Group h="100%" gap={0} visibleFrom="sm">
             <a href="#" className={classes.link}>
               Home
             </a>
@@ -152,14 +145,15 @@ const Navbar =()=> {
             <a href="#" className={classes.link}>
               Learn
             </a>
-            <a href="/about" className={classes.link}>
-              About 
+            <a href="#" className={classes.link}>
+              Academy
             </a>
           </Group>
 
           <Group visibleFrom="sm">
+          
             <Link href={"/login"}><Button variant="default">Log in</Button></Link>
-            <Link href={"/signup"} ><Button>Sign up</Button></Link>
+          <Link href={"/signup"} ><Button>Sign up</Button></Link>
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
@@ -194,7 +188,7 @@ const Navbar =()=> {
           </UnstyledButton>
           <Collapse in={linksOpened}>{links}</Collapse>
           <a href="#" className={classes.link}>
-            Learn
+            Learn 
           </a>
           <a href="#" className={classes.link}>
             Academy
@@ -211,4 +205,4 @@ const Navbar =()=> {
     </Box>
   );
 }
-export default Navbar;
+export default navbar;
