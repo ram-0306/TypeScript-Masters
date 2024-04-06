@@ -44,5 +44,3 @@ export default function GetInTouchPage() {
     <div>Feedback</div>
   )
 }
-
-export default Feedback
