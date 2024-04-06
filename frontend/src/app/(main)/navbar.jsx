@@ -91,8 +91,18 @@ const navbar = ()=> {
   return (
     <Box>
       <header className={classes.header}>
+<<<<<<< HEAD
         <Group justify="space-between" h="100%">
           <Title order={3}>TypeScript Masters</Title>
+=======
+        <Group justify="space-between"  h="100%">
+           <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/2048px-Typescript_logo_2020.svg.png"
+            className="img-fluid rounded-top"style={{height:30}}
+            alt=""
+           />
+           <Title order={3}>TypeScript Master</Title>
+>>>>>>> 77a95b14f2e8bf34a41b0f23753b53f72e3d91c2
 
           <Group h="100%" gap={0} visibleFrom="sm">
             <a href="#" className={classes.link}>
@@ -137,16 +147,20 @@ const navbar = ()=> {
                         Their food sources have decreased, and their numbers
                       </Text>
                     </div>
-                    <Button variant="default">Get started</Button>
+                    <Button variant="default">Know more</Button>
                   </Group>
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
             <a href="#" className={classes.link}>
+<<<<<<< HEAD
               Learn
             </a>
             <a href="#" className={classes.link}>
               Academy
+=======
+              Guide
+>>>>>>> 77a95b14f2e8bf34a41b0f23753b53f72e3d91c2
             </a>
           </Group>
 
