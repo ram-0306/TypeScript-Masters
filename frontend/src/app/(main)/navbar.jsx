@@ -18,6 +18,7 @@ import {
   ScrollArea,
   rem,
   useMantineTheme,
+  Title,
 } from '@mantine/core';
 // import {MantineLogo}  from '@mantinex/mantine-logo';
 import  {useDisclosure} from '@mantine/hooks';
@@ -98,7 +99,7 @@ const Navbar =()=> {
             className="img-fluid rounded-top"style={{height:30}}
             alt=""
            />
-           <h1>TypeScript Master</h1>
+           <Title order={3}>TypeScript Master</Title>
 
 
           <Group h="100%" gap={0} visibleFrom="sm" mb={50}>
@@ -144,16 +145,13 @@ const Navbar =()=> {
                         Their food sources have decreased, and their numbers
                       </Text>
                     </div>
-                    <Button variant="default">Get started</Button>
+                    <Button variant="default">Know more</Button>
                   </Group>
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
             <a href="#" className={classes.link}>
-              Learn
-            </a>
-            <a href="/about" className={classes.link}>
-              About 
+              Guide
             </a>
           </Group>
 
