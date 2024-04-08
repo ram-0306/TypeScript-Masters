@@ -138,6 +138,7 @@ const Signup = () => {
         </form>
       </Paper>
     </Container>
+
   );
 }
 export default Signup;
