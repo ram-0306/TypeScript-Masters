@@ -60,7 +60,7 @@ const Signup = () => {
 
   return (
     <Container size="md">
-      <Paper radius="md" p="xl" withBorder>
+      <Paper radius="md" p="xl">
         <Text size="lg" Text="center" fw={500}>
           Welcome to Typescript Masters, {type} with
         </Text>

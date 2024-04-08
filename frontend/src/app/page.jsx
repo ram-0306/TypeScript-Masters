@@ -3,6 +3,7 @@ import { Overlay, Container, Title, Button, Text } from '@mantine/core';;
 import classes from './page.module.css'
 import { HomeHeader } from './HomeHeader';
 import Footer from './Footer';
+import Features from './Features';
 export default function Home() {
   return (
     <>
@@ -23,9 +24,9 @@ export default function Home() {
             Get started
           </Button>
         </Container>
-        <Footer/>
       </div>
-      <Features />
+        <Features />
+        <Footer/>
     </>
 
   );

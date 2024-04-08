@@ -17,6 +17,8 @@ import {
 } from '@mantine/core';
 import { GoogleButton } from './GoogleButton';
 import { TwitterButton } from './TwitterButton';
+import classes from './login.module.css';
+
 
 const Login = () => {
   const [type, toggle] = useToggle(['login', 'register']);
@@ -35,10 +37,12 @@ const Login = () => {
   });
 
   return (
-    <Container size="sm">
-      <Paper radius="md" p="xl" withBorder>
+    <div className={classes.background}>
+    <Container size="sm" p={110}>
+    <div >
+      <Paper radius="md" p="xl" withBorder >
         <Text size="lg" fw={500}>
-          Welcome to Mantine, {type} with
+          Welcome to TypeScript Masters, {type} with
         </Text>
 
         <Group grow mb="md" mt="md">
@@ -61,6 +65,7 @@ const Login = () => {
                 value={form.values.name}
                 onChange={(event) => form.setFieldValue('name', event.currentTarget.value)}
                 radius="md"
+                background="transparent"
               />
             )}
 
@@ -106,7 +111,9 @@ const Login = () => {
           </Group>
         </form>
       </Paper>
+      </div>
     </Container>
+    </div>
   );
 }
 export default Login;

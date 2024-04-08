@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import {
   HoverCard,
   Group,
@@ -35,37 +35,28 @@ import Link from 'next/link';
 const mockdata = [
   {
     icon: IconCode,
-    title: 'Open source',
-    description: 'This Pokémon’s cry is very loud and distracting',
+    title: 'Seamless Transition',
+    description: 'Effortlessly convert your existing JavaScript projects into TypeScript with our user-friendly conversion tools',
   },
   {
     icon: IconCoin,
     title: 'Free for everyone',
-    description: 'The fluid of Smeargle’s tail secretions changes',
+    description: 'Accessible to everyone at no cost, ensuring inclusivity and equal opportunity for learning TypeScript.',
   },
   {
     icon: IconBook,
     title: 'Documentation',
-    description: 'Yanma is capable of seeing 360 degrees without',
+    description: 'Comprehensive documentation covering TypeScript concepts, features, and best practices for effective learning and reference.',
   },
   {
     icon: IconFingerprint,
-    title: 'Security',
-    description: 'The shell’s rounded shape and the grooves on its.',
+    title: 'Q/A Support',
+    description: 'Interactive Q&A support to address user queries, troubleshoot issues, and foster community engagement for enhanced learning and collaboration..',
   },
-  {
-    icon: IconChartPie3,
-    title: 'Analytics',
-    description: 'This Pokémon uses its flying ability to quickly chase',
-  },
-  {
-    icon: IconNotification,
-    title: 'Notifications',
-    description: 'Combusken battles with the intensely hot flames it spews',
-  },
+
 ];
 
-const navbar = ()=> {
+const navbar = () => {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const theme = useMantineTheme();
@@ -91,18 +82,8 @@ const navbar = ()=> {
   return (
     <Box>
       <header className={classes.header}>
-<<<<<<< HEAD
         <Group justify="space-between" h="100%">
           <Title order={3}>TypeScript Masters</Title>
-=======
-        <Group justify="space-between"  h="100%">
-           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/2048px-Typescript_logo_2020.svg.png"
-            className="img-fluid rounded-top"style={{height:30}}
-            alt=""
-           />
-           <Title order={3}>TypeScript Master</Title>
->>>>>>> 77a95b14f2e8bf34a41b0f23753b53f72e3d91c2
 
           <Group h="100%" gap={0} visibleFrom="sm">
             <a href="#" className={classes.link}>
@@ -144,30 +125,26 @@ const navbar = ()=> {
                         Get started
                       </Text>
                       <Text size="xs" c="dimmed">
-                        Their food sources have decreased, and their numbers
+                        Start your TypeScript journey here...
                       </Text>
                     </div>
-                    <Button variant="default">Know more</Button>
+                    <Button variant="default">Get started</Button>
                   </Group>
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
             <a href="#" className={classes.link}>
-<<<<<<< HEAD
               Learn
             </a>
             <a href="#" className={classes.link}>
               Academy
-=======
-              Guide
->>>>>>> 77a95b14f2e8bf34a41b0f23753b53f72e3d91c2
             </a>
           </Group>
 
           <Group visibleFrom="sm">
-          
+
             <Link href={"/login"}><Button variant="default">Log in</Button></Link>
-          <Link href={"/signup"} ><Button>Sign up</Button></Link>
+            <Link href={"/signup"} ><Button>Sign up</Button></Link>
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
@@ -202,7 +179,7 @@ const navbar = ()=> {
           </UnstyledButton>
           <Collapse in={linksOpened}>{links}</Collapse>
           <a href="#" className={classes.link}>
-            Learn 
+            Learn
           </a>
           <a href="#" className={classes.link}>
             Academy
@@ -210,7 +187,7 @@ const navbar = ()=> {
 
           <Divider my="sm" />
 
-          <Group justify="center" grow pb="xl" px="md">
+          <Group justify="center" grow px="md">
             <Button variant="default">Log in</Button>
             <Button>Sign up</Button>
           </Group>
@@ -219,4 +196,5 @@ const navbar = ()=> {
     </Box>
   );
 }
+
 export default navbar;
