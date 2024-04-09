@@ -61,7 +61,7 @@ const EditorComponent = () => {
 
         console.log(content);
       },
-      data: guideData.content ?? {},
+      // data: guideData.content ?? {},
       tools: {
         header: Header,
         list: List,
@@ -104,7 +104,7 @@ const EditorComponent = () => {
     })
   }
 
-  return <><div id='editorjs'></div></>;
+  return <><div id='editorjs'></div></>
 }
 
 export default EditorComponent;
