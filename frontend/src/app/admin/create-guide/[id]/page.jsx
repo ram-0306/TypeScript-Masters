@@ -26,7 +26,7 @@ const EditorComponent = () => {
   const { id } = useParams();
   // console.log(id);
   const [guideData, setGuideData] = useState(null);
-
+  const [initialContent, setInitialContent] = useState(DEFAULT_INITIAL_DATA);
 
   const fetchGuideData = () => {
     fetch('http://localhost:5000/guide/getbyid/' + id)
@@ -46,7 +46,7 @@ const EditorComponent = () => {
   useEffect(() => {
     fetchGuideData();
   }, [])
-  
+
 
   const initEditor = () => {
     const editor = new EditorJS({
@@ -55,13 +55,13 @@ const EditorComponent = () => {
         ejInstance.current = editor;
       },
       autofocus: true,
-      data: DEFAULT_INITIAL_DATA,
+      // data: DEFAULT_INITIAL_DATA,
       onChange: async () => {
         let content = await editor.saver.save();
 
         console.log(content);
       },
-      // data: guideData.content ?? {},
+      data: guideData.content ?? initialContent,
       tools: {
         header: Header,
         list: List,
@@ -82,7 +82,7 @@ const EditorComponent = () => {
 
   // This will run only once
   useEffect(() => {
-    if (ejInstance.current === null && guideData !==null) {
+    if (ejInstance.current === null && guideData !== null) {
       initEditor();
     }
 
@@ -90,7 +90,7 @@ const EditorComponent = () => {
       ejInstance?.current?.destroy();
       ejInstance.current = null;
     };
-  }, []);
+  }, [guideData]);
 
   const updateGuide = () => {
     // editor.save().then((outputData) => {
@@ -98,7 +98,7 @@ const EditorComponent = () => {
     // }).catch((error) => {
     //   console.log('Saving failed: ', error)
     // });
-    fetch('http://localhost:5000/guide/update/'+id, {
+    fetch('http://localhost:5000/guide/update/' + id, {
       method: 'PUT',
       // body: JSON
     })

@@ -1,11 +1,9 @@
 import React from 'react'
 
-const guides
- = () => {
+const Guides = () => {
   return (
-    <div>guides
-    </div>
+    <div>Guides</div>
   )
 }
 
-export default guides
+export default Guides
