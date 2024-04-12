@@ -1,8 +1,13 @@
+import { Container } from '@mantine/core';
 import React from 'react'
 
 const AdminDashboard = () => {
   return (
-    <div>AdminDashboard</div>
+    <div>
+      <Container>
+        <Text>Admin Dashboard</Text>
+      </Container>
+    </div>
   )
 }
 
