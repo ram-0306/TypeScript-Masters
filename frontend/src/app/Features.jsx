@@ -1,4 +1,4 @@
-import { Title, SimpleGrid, Text, Button, ThemeIcon, Grid, rem } from '@mantine/core';
+import { Title, SimpleGrid, Text, Button, ThemeIcon, Grid, rem, Container } from '@mantine/core';
 import { IconReceiptOff, IconFlame, IconCircleDotted, IconFileCode } from '@tabler/icons-react';
 import classes from './features.module.css';
 
@@ -48,6 +48,10 @@ export default function Features() {
   ));
 
   return (
+    <div>
+
+
+    
     <div className={classes.wrapper}>
       <Grid gutter={80}>
         <Grid.Col span={{ base: 12, md: 5 }}>
@@ -75,6 +79,9 @@ export default function Features() {
           </SimpleGrid>
         </Grid.Col>
       </Grid>
+    </div>
+
+   
     </div>
   );
 }

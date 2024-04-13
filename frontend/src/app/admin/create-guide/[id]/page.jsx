@@ -4,6 +4,9 @@ import EditorJS from "@editorjs/editorjs";
 import Header from '@editorjs/header';
 import List from '@editorjs/list';
 import { useParams } from "next/navigation";
+import { Button } from "@mantine/core";
+import { IconPlus } from "@tabler/icons-react";
+import { enqueueSnackbar } from "notistack";
 // import
 
 const DEFAULT_INITIAL_DATA = {
@@ -27,6 +30,7 @@ const EditorComponent = () => {
   // console.log(id);
   const [guideData, setGuideData] = useState(null);
   const [initialContent, setInitialContent] = useState(DEFAULT_INITIAL_DATA);
+
 
   const fetchGuideData = () => {
     fetch('http://localhost:5000/guide/getbyid/' + id)
@@ -98,13 +102,36 @@ const EditorComponent = () => {
     // }).catch((error) => {
     //   console.log('Saving failed: ', error)
     // });
-    fetch('http://localhost:5000/guide/update/' + id, {
-      method: 'PUT',
-      // body: JSON
-    })
+    ejInstance.current.save()
+      .then((result) => {
+        console.log(result);
+        fetch('http://localhost:5000/guide/update/' + id, {
+          method: 'PUT',
+          body: JSON.stringify({
+            content: result
+          })
+        })
+        .then((response) => {
+          console.log(response.status);
+          enqueueSnackbar('Guide Updated Successfully', { variant: 'success' });
+        })
+      }).catch((err) => {
+        console.log(err);
+      });
+
+
+    // return 
+
   }
 
-  return <><div id='editorjs'></div></>
+  return <>
+    <Button justify="center" leftSection={<IconPlus />} variant="gradient"
+      gradient={{ from: 'blue', to: 'cyan', deg: 90 }}
+      onClick={updateGuide}
+    >
+      Update
+    </Button>
+    <div id='editorjs'></div></>
 }
 
 export default EditorComponent;

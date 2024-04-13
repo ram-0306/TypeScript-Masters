@@ -20,6 +20,7 @@
     "@monaco-editor/react": "^4.6.0",
     "@tabler/icons-react": "^2.47.0",
     "@uiw/react-md-editor": "^4.0.4",
+    "child_process": "^1.0.2",
     "devicon": "^2.16.0",
     "formik": "^2.4.5",
     "js-to-ts-converter": "^0.18.2",
