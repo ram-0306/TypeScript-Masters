@@ -1,6 +1,11 @@
 .hero {
   position: relative;
   background-image: url(https://www.reactjsindia.com/blog/wp-content/uploads/2024/03/Reactjs-for-Interactive-Web-Development-The-Business-Advantages.jpg);
+  /* background: rgb(116,254,255); */
+  /* background: radial-gradient(circle, rgb(117, 255, 255) 70%, rgb(92, 198, 255) 80%); */
+  
+
+
   background-size: cover;
   background-position: center;
 }

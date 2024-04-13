@@ -1,8 +1,9 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
-import { Card, Image, Text, Badge, Button, Group, SimpleGrid, Container } from '@mantine/core';
+import { Card, Image, Text, Badge, Button, Group, SimpleGrid, Container, Flex, Title, ActionIcon } from '@mantine/core';
 import Link from 'next/link';
+import { IconNote, IconPlus } from '@tabler/icons-react';
 
 const ManageGuides = () => {
 
@@ -48,18 +49,12 @@ const ManageGuides = () => {
   const displayGuides = () => {
     return guidesList.map(guide => (
       <Card component={Link} href={'/admin/create-guide/' + guide._id} shadow="sm" padding="lg" radius="md" withBorder >
-        <Card.Section>
-          <Image
-            src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png"
-            height={160}
-            alt="Norway"
-          />
-        </Card.Section>
+
 
         <Group justify="space-between" mt="md" mb="xs">
           <Text fw={500}>{guide.title}</Text>
           <Text fw={500}>{guide.subtitle}</Text>
-        
+
         </Group>
       </Card>
     ))
@@ -69,18 +64,29 @@ const ManageGuides = () => {
   return (
     <div>
       <Container>
-        <h1 >TypeScript Guides</h1>
+        <Flex justify={'space-between'} align={'center'}>
 
-        <SimpleGrid cols={3}>
-          <Card shadow="sm" padding="lg" radius="md" withBorder onClick={createGuide}>
+          <h1>TypeScript Guides</h1>
+
+          <Button justify="center" leftSection={<IconPlus />} variant="gradient"
+            gradient={{ from: 'blue', to: 'cyan', deg: 90 }}
+            onClick={() => createGuide()}
+          >
+            New Guide
+          </Button>
+        </Flex>
+
+        <SimpleGrid cols={4}>
+
+          {/* <Card shadow="sm" padding="lg" radius="md" withBorder onClick={createGuide}>
             <Card.Section>
-              <Image
-                src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png"
-                height={160}
-                alt="Norway"
-              />
+              <Flex justify={'center'} align={'center'} direction={'column'}>
+
+                <IconPlus size={100} />
+                <Title order={6}>New Guide</Title>
+              </Flex>
             </Card.Section>
-          </Card>
+          </Card> */}
           {
             displayGuides()
           }
