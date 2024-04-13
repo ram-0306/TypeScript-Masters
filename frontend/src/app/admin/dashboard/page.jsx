@@ -6,6 +6,7 @@ const AdminDashboard = () => {
     <div>
       <Container>
         <Text>Admin Dashboard</Text>
+        <Text>Dashboard</Text>
       </Container>
     </div>
   )
