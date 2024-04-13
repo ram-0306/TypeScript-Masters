@@ -56,7 +56,7 @@ const mockdata = [
 
 ];
 
-const navbar = () =>  {
+const Navbar = () =>  {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const theme = useMantineTheme();
@@ -80,7 +80,7 @@ const navbar = () =>  {
   ));
 
   return (
-    <Box>
+    <Box style={{position: 'relative'}}>
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
           <Title order={3}>TypeScript Masters</Title>
@@ -197,4 +197,4 @@ const navbar = () =>  {
   );
 }
 
-export default navbar;
+export default Navbar;
