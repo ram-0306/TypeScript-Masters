@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import { Card, Image, Text, Badge, Button, Group, SimpleGrid, Container, Flex, Title, ActionIcon } from '@mantine/core';
 import Link from 'next/link';
-import { IconNote, IconPlus } from '@tabler/icons-react';
+import { IconEdit, IconNote, IconPlus, IconTrash } from '@tabler/icons-react';
 
 const ManageGuides = () => {
 
@@ -48,16 +48,34 @@ const ManageGuides = () => {
 
   const displayGuides = () => {
     return guidesList.map(guide => (
-      <Card component={Link} href={'/admin/create-guide/' + guide._id} shadow="sm" padding="lg" radius="md" withBorder >
+      <Card shadow="sm" padding="lg" radius="md" withBorder >
 
 
         <Group justify="space-between" mt="md" mb="xs">
           <Text fw={500}>{guide.title}</Text>
           <Text fw={500}>{guide.subtitle}</Text>
-
+          <ActionIcon onClick={() => deleteGuide(guide._id)} color='red'>
+            <IconTrash />
+          </ActionIcon>
+          <ActionIcon component={Link} href={'/admin/create-guide/' + guide._id} color='cyan'>
+            <IconEdit />
+          </ActionIcon>
         </Group>
       </Card>
     ))
+  }
+
+  const deleteGuide = (id) => {
+    fetch('http://localhost:5000/guide/delete/' + id, {
+      method: 'DELETE'
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          fetchGuidesData();
+        }
+      }).catch((err) => {
+        console.log(err);
+      });
   }
 
 
