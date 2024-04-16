@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Avatar, Badge, Table, Group, Text, ActionIcon, Anchor, rem } from '@mantine/core';
 import { IconPencil, IconTrash } from '@tabler/icons-react';
 
@@ -53,6 +53,58 @@ const jobColors = {
 };
 
 const ManageUser = () => {
+
+  const [userList, setUserList] = useState([])
+
+  const fetchUserData = () => {
+    fetch('http://localhost:5000/user/getall')
+      .then((response) => {
+        if (response.status === 200) {
+          response.json()
+            .then((result) => {
+              console.log(result);
+              setUserList(result);
+            })
+        }
+      }).catch((err) => {
+        console.log(err);
+      });
+  }
+
+  useEffect(() => {
+    fetchUserData();
+  }, [])
+
+  const displayUser = () => {
+    return (
+      <Table.ScrollContainer minWidth={800}>
+        <Table verticalSpacing="md">
+          <Table.Thead>
+            <Table.Tr>
+              <Table.Th>Employee</Table.Th>
+              <Table.Th>Job title</Table.Th>
+              <Table.Th>Email</Table.Th>
+              <Table.Th>Phone</Table.Th>
+              <Table.Th />
+            </Table.Tr>
+          </Table.Thead>
+          <Table.Tbody>
+          {
+            userList.map((user) => {
+              return (
+                  <Table.Tr>
+                    <Table.Td>{user.name}</Table.Td>
+                  </Table.Tr>
+                )
+              })
+            }
+            </Table.Tbody>
+
+        </Table>
+      </Table.ScrollContainer>
+    )
+  }
+
   const rows = data.map((item) => (
     <Table.Tr key={item.name}>
       <Table.Td>
@@ -92,20 +144,9 @@ const ManageUser = () => {
 
   return (
     <div style={{ marginTop: '100px' }}>
-      <Table.ScrollContainer minWidth={800}>
-        <Table verticalSpacing="md">
-          <Table.Thead>
-            <Table.Tr>
-              <Table.Th>Employee</Table.Th>
-              <Table.Th>Job title</Table.Th>
-              <Table.Th>Email</Table.Th>
-              <Table.Th>Phone</Table.Th>
-              <Table.Th />
-            </Table.Tr>
-          </Table.Thead>
-          <Table.Tbody>{rows}</Table.Tbody>
-        </Table>
-      </Table.ScrollContainer>
+      {
+        displayUser()
+      }
     </div>
   );
 }
