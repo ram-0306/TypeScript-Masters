@@ -75,5 +75,6 @@ const Guides = ({ selGuide }) => {
     </div>
   )
 }
+  
 
-export default Guide
+export default Guides
