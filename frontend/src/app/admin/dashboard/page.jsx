@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 'use client';
 import { Box, Center, Grid, GridCol, Group, Paper, RingProgress, Text, rem } from '@mantine/core';
 
@@ -448,20 +447,6 @@ const StatCard = ({ stat, Icon }) => {
             </div>
         </Group>
     </Paper>
-=======
-import { Container } from '@mantine/core';
-import React from 'react'
-
-const AdminDashboard = () => {
-  return (
-    <div>
-      <Container>
-        <Text>Admin Dashboard</Text>
-        <Text>Dashboard</Text>
-      </Container>
-    </div>
-  )
->>>>>>> aeffc4a555f236ed85dc5bb14f8fe302802f7cbc
 }
 
 const Admin = () => {
