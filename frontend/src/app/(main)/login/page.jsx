@@ -18,23 +18,52 @@ import {
 import { GoogleButton } from './GoogleButton';
 import { TwitterButton } from './TwitterButton';
 import classes from './login.module.css';
+import Link from 'next/link';
+import { enqueueSnackbar } from 'notistack';
+import { useRouter } from 'next/navigation';
 
 
 const Login = () => {
-  const [type, toggle] = useToggle(['login', 'register']);
+
+  const router = useRouter();
+
+
   const form = useForm({
     initialValues: {
       email: '',
-      name: '',
-      password: '',
-      terms: true,
+      password: ''
     },
 
     validate: {
       email: (val) => (/^\S+@\S+$/.test(val) ? null : 'Invalid email'),
-      password: (val) => (val.length <= 6 ? 'Password should include at least 6 characters' : null),
+      password: (val) => (val.length < 6 ? 'Password should include at least 6 characters' : null),
     },
   });
+
+  const loginSubmit = (values) => {
+    fetch('http://localhost:5000/user/authenticate', {
+      method: 'POST',
+      body: JSON.stringify(values),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((response) => {
+        console.log(response.status);
+        if (response.status === 200) {
+          enqueueSnackbar('User LoggedIn Successfully', { variant: 'success' });
+          router.push('/');
+        } else if (response.status === 401) {
+          enqueueSnackbar('Invalide Credential', { variant: 'error' });
+        }
+        else {
+          enqueueSnackbar('Something went wrong', { variant: 'error' });
+        }
+      }).catch((err) => {
+        console.log(err);
+        enqueueSnackbar('Something went wrong', { variant: 'error' });
+      });
+  }
 
   return (
     <div className={classes.background}>
@@ -43,9 +72,8 @@ const Login = () => {
           <div >
             <Paper radius="md" p="xl" withBorder className={classes.card}>
               <Text size="lg" fw={500}>
-                Welcome to TypeScript Masters, {type} with
+                Welcome to TypeScript Masters, Login with
               </Text>
-
               <Group grow mb="md" mt="md">
                 <GoogleButton radius="xl">Google</GoogleButton>
                 <TwitterButton radius="xl">Twitter</TwitterButton>
@@ -53,23 +81,8 @@ const Login = () => {
 
               <Divider label="Or continue with email" labelPosition="center" my="lg" />
 
-              <form onSubmit={form.onSubmit((values) => {
-                console.log(values);
-
-
-              })}>
+              <form onSubmit={form.onSubmit(loginSubmit)}>
                 <Stack>
-                  {type === 'register' && (
-                    <TextInput
-                      label="Name"
-                      placeholder="Your name"
-                      value={form.values.name}
-                      onChange={(event) => form.setFieldValue('name', event.currentTarget.value)}
-                      radius="md"
-                      background="transparent"
-                    />
-                  )}
-
                   <TextInput
                     required
                     label="Email"
@@ -89,25 +102,14 @@ const Login = () => {
                     error={form.errors.password && 'Password should include at least 6 characters'}
                     radius="md"
                   />
-
-
-                  {type === 'register' && (
-                    <Checkbox
-                      label="I accept terms and conditions"
-                      checked={form.values.terms}
-                      onChange={(event) => form.setFieldValue('terms', event.currentTarget.checked)}
-                    />
-                  )}
                 </Stack>
 
                 <Group justify="space-between" mt="xl">
-                  <Anchor component="button" type="button" c="dimmed" onClick={() => toggle()} size="xs">
-                    {type === 'register'
-                      ? 'Already have an account? Login'
-                      : "Don't have an account? Register"}
+                  <Anchor component={Link} href={'/signup'} type="button" c="dimmed" size="xs">
+                    Don't have an account? Register
                   </Anchor>
                   <Button type="submit" radius="xl">
-                    {upperFirst(type)}
+                    Login
                   </Button>
                 </Group>
               </form>

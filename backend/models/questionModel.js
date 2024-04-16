@@ -1,11 +1,12 @@
-const {Schema, model} = require("../connection")
+const {Schema, model, Types} = require("../connection")
 
 const myschema = new Schema({
-    user: {type:String, require:true},
+    user:  {type: Types.ObjectId, ref: 'user'},
+    title: {type:String, require:true},
     question: {type:String, require:true},
-    tags:Array,
-    type:String,
-    createdAt:{Date},
+    category:{type : String},
+    tags: {type: Array},
+    createdAt:{type : Date, default: Date.now},
 });
 
 module.exports = model("question", myschema);
