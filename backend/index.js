@@ -9,6 +9,7 @@ const userRouter = require('./routers/userRouter')
 const guideRouter = require('./routers/guideRouter')
 const feedbackRouter = require('./routers/feedbackRouter')
 const questionRouter = require('./routers/questionRouter')
+const playRouter = require('./routers/playgroundRouter')
 
 //middleware
 
@@ -22,6 +23,7 @@ app.use ('/user',userRouter);
 app.use ('/guide',guideRouter);
 app.use ('/feedback',feedbackRouter);
 app.use ('/question',questionRouter);
+app.use ('/playground',playRouter);
 
 app.get('/',(req, res)=>{
 res.send('response from express')

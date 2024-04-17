@@ -36,16 +36,19 @@ const mockdata = [
     icon: IconCode,
     title: 'Seamless Transition',
     description: 'Effortlessly convert your existing JavaScript projects into TypeScript with our user-friendly conversion tools',
+    url: '/playground',
   },
   {
     icon: IconCoin,
     title: 'Free for everyone',
     description: 'Accessible to everyone at no cost, ensuring inclusivity and equal opportunity for learning TypeScript.',
+    url: '/features',
   },
   {
     icon: IconBook,
     title: 'Documentation',
     description: 'Comprehensive documentation covering TypeScript concepts, features, and best practices for effective learning and reference.',
+    url: '/guides',
   },
   {
     icon: IconFingerprint,
@@ -61,7 +64,8 @@ export function HomeHeader() {
   const theme = useMantineTheme();
 
   const links = mockdata.map((item) => (
-    <UnstyledButton className={classes.subLink} key={item.title}>
+    <a href={item.url} className={classes.link} key={item.title}>
+    <UnstyledButton className={classes.subLink}>
       <Group wrap="nowrap" align="flex-start">
         <ThemeIcon size={34} variant="default" radius="md">
           <item.icon style={{ width: rem(22), height: rem(22) }} color={theme.colors.blue[6]} />
@@ -76,6 +80,7 @@ export function HomeHeader() {
         </div>
       </Group>
     </UnstyledButton>
+    </a>
   ));
 
   return (
