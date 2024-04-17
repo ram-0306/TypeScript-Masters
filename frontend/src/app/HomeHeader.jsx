@@ -144,6 +144,7 @@ export function HomeHeader() {
 
             <Link href={"/login"}><Button variant="default">Log in</Button></Link>
             <Link href={"/signup"} ><Button>Sign up</Button></Link>
+           
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />

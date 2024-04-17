@@ -32,6 +32,7 @@ import {
 import classes from './navbar.module.css';
 import Link from 'next/link';
 
+
 const mockdata = [
   {
     icon: IconCode,
@@ -51,6 +52,7 @@ const mockdata = [
   {
     icon: IconFingerprint,
     title: 'Q/A Support',
+  
     description: 'Interactive Q&A support to address user queries, troubleshoot issues, and foster community engagement for enhanced learning and collaboration..',
   },
 

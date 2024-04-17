@@ -10,6 +10,7 @@ import {
   IconReceipt2,
   IconSwitchHorizontal,
   IconLogout,
+  IconBook,
 } from '@tabler/icons-react';
 import { MantineLogo } from '@mantinex/mantine-logo';
 import classes from './sidebar.module.css';
@@ -37,7 +38,7 @@ export function Sidebar({guidesData, selGuide, setSelGuide}) {
         setSelGuide(item);
       }}
     >
-      <IconBellRinging className={classes.linkIcon} stroke={1.5} />
+      <IconBook className={classes.linkIcon} stroke={1.5} />
       <span>{item.title}</span>
     </a>
   ));
