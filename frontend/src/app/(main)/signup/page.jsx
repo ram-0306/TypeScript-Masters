@@ -21,7 +21,6 @@ import Link from 'next/link';
 import { enqueueSnackbar } from 'notistack';
 
 const Signup = () => {
-  const [type, toggle] = useToggle(['login', 'register']);
   const form = useForm({
     initialValues: {
       email: '',
@@ -62,7 +61,7 @@ const Signup = () => {
     <Container size="md">
       <Paper radius="md" p="xl">
         <Text size="lg" Text="center" fw={500}>
-          Welcome to Typescript Masters, {type} with
+          Welcome to Typescript Masters, Register with
         </Text>
 
         <Group grow mb="md" mt="md">
@@ -118,18 +117,16 @@ const Signup = () => {
               radius="md"
             />
 
-            {type === 'register' && (
               <Checkbox
                 label="I accept terms and conditions"
                 checked={form.values.terms}
                 onChange={(event) => form.setFieldValue('terms', event.currentTarget.checked)}
               />
-            )}
           </Stack>
 
           <Group justify="space-between" mt="xl">
-            <Anchor component="button" type="button" c="dimmed" onClick={() => toggle()} size="xs">
-              'Already have an account? Login'
+            <Anchor href={'/login'} c="dimmed" component={Link} size="xs">
+              Already have an account? Login
             </Anchor>
             <Button type="submit" radius="xl">
               Signup
