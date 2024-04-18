@@ -3,7 +3,7 @@ import React from 'react'
 const QuesAndAns = () => {
   return (
     <div>
-    dhwflkjpowjef;woihb hb
+    dhwflkjpowjef;woi
     </div>
   )
 }
