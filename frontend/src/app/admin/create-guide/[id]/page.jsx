@@ -8,7 +8,7 @@ import Checklist from '@editorjs/checklist';
 import Quote from '@editorjs/quote';
 import Table from '@editorjs/table';
 import { useParams } from "next/navigation";
-import { Button, TextInput } from "@mantine/core";
+import { Button, Card, Container, Select, TextInput, Title } from "@mantine/core";
 import { IconPlus } from "@tabler/icons-react";
 import { enqueueSnackbar } from "notistack";
 // import
@@ -27,10 +27,16 @@ const DEFAULT_INITIAL_DATA = {
 }
 
 
+const CATEGORIES = ['Basics',
+  'Difference between JavaScript and TypeScript',
+  'TypeScript Primitive Types',
+];
+
 const EditorComponent = () => {
   const ejInstance = useRef();
 
   const [title, setTitle] = useState('');
+  const [category, setCategory] = useState(CATEGORIES[0]);
 
   const { id } = useParams();
   // console.log(id);
@@ -80,7 +86,7 @@ const EditorComponent = () => {
         checklist: Checklist,
         quote: Quote,
         table: Table
-        
+
       },
     });
   };
@@ -110,16 +116,17 @@ const EditorComponent = () => {
           method: 'PUT',
           body: JSON.stringify({
             content: result,
-            title
+            title,
+            category
           }),
           headers: {
             'Content-Type': 'application/json'
           }
         })
-        .then((response) => {
-          console.log(response.status);
-          enqueueSnackbar('Guide Updated Successfully', { variant: 'success' });
-        })
+          .then((response) => {
+            console.log(response.status);
+            enqueueSnackbar('Guide Updated Successfully', { variant: 'success' });
+          })
       }).catch((err) => {
         console.log(err);
       });
@@ -131,14 +138,29 @@ const EditorComponent = () => {
 
   return <>
 
-    <TextInput label="Guide Title" value={title} onChange={e => setTitle(e.target.value)} />
-    <Button justify="center" leftSection={<IconPlus />} variant="gradient"
-      gradient={{ from: 'blue', to: 'cyan', deg: 90 }}
-      onClick={updateGuide}
-    >
-      Update
-    </Button>
-    <div id='editorjs'></div></>
+    <Container size={'md'}>
+      <Card shadow="xs" padding="md" radius="md" style={{ marginBottom: 20 }}>
+        <Title order={3} my={4}>Guide Editor</Title>
+        <TextInput mb={20} label="Guide Title" value={title} onChange={e => setTitle(e.target.value)} />
+        <Select
+          mb={20}
+          label="Select category"
+          placeholder="Pick value"
+          value={category}
+          onChange={setCategory}
+          data={CATEGORIES}
+        />
+        <Button justify="center" leftSection={<IconPlus />} variant="gradient"
+          gradient={{ from: 'blue', to: 'cyan', deg: 90 }}
+          onClick={updateGuide}
+        >
+          Update
+        </Button>
+      </Card>
+    </Container>
+
+    <div id='editorjs'></div>
+  </>
 }
 
 export default EditorComponent;
