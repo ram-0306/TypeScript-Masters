@@ -4,6 +4,8 @@ import classes from './page.module.css'
 import { HomeHeader } from './HomeHeader';
 import Footer from './Footer';
 import Features from './Features';
+import Faq from './user/faq/page';
+
 export default function Home() {
   return (
     <>
@@ -26,6 +28,7 @@ export default function Home() {
         </Container>
       </div>
         <Features />
+        <Faq />
         <Footer/>
     </>
 
