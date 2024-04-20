@@ -171,6 +171,7 @@ const EditorComponent = () => {
 
     <div id='editorjs'></div>
   </>
+
 }
 
 export default EditorComponent;
