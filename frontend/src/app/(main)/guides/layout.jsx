@@ -2,9 +2,10 @@
 import { AppShell, Burger, Group, Skeleton } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { MantineLogo } from '@mantinex/mantine-logo';
-import { Sidebar } from './Sidebar';
+import Sidebar from './Sidebar';
 import { useEffect, useState } from 'react';
 import Guides from './page';
+import { IconCalendarStats } from '@tabler/icons-react';
 
 export default function Layout({children}) {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
@@ -12,6 +13,7 @@ export default function Layout({children}) {
 
   const [guidesList, setGuidesList] = useState([])
   const [selGuide, setSelGuide] = useState(null);
+  const [categoryWiseGuides, setCategoryWiseGuides] = useState([]);
 
   const fetchGuidesData = () => {
     fetch('http://localhost:5000/guide/getall')
@@ -20,6 +22,19 @@ export default function Layout({children}) {
           response.json()
             .then((result) => {
               console.log(result);
+              const categories = Array.from(new Set(result.map((item) => item.category)));
+              const tempData = result.map(item => (
+                {
+                  label: item.category,
+                  icon: IconCalendarStats,
+                  links: result.filter((guide) => guide.category === item.category).map((guide) => (
+                    { label: guide.title, link: '/guides/' + guide._id }
+                  ))
+                }
+              ));
+
+              console.log(tempData);
+              // setCategoryWiseGuides();
               setGuidesList(result);
             })
         }
