@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from "react";
 import EditorJS from "@editorjs/editorjs";
 import Header from '@editorjs/header';
 import List from '@editorjs/list';
-import SimpleImage from '@editorjs/image';
 import Checklist from '@editorjs/checklist';
 import Quote from '@editorjs/quote';
 import Table from '@editorjs/table';
@@ -12,6 +11,8 @@ import { useParams } from "next/navigation";
 import { Button, Card, Container, Select, TextInput, Title } from "@mantine/core";
 import { IconPlus } from "@tabler/icons-react";
 import { enqueueSnackbar } from "notistack";
+import ImageTool from '@editorjs/image';
+import axios from 'axios';
 // import
 
 const DEFAULT_INITIAL_DATA = {
@@ -93,17 +94,40 @@ const EditorComponent = () => {
       tools: {
         header: Header,
         list: List,
-        image: SimpleImage,
         checklist: Checklist,
         quote: Quote,
-<<<<<<< HEAD
         table: Table,
-        code:CodeTool
-        
-=======
-        table: Table
+        code: CodeTool,
+        image: {
+          class: ImageTool,
+          config: {
+            /**
+             * Custom uploader
+             */
+            uploader: {
+  
+             async uploadByFile(file){
+                // your own uploading logic here
+                const formData = new FormData();
+                formData.append('file', file);
 
->>>>>>> 8f9d7c35c1b9a3f28c476d6a92236424d3e4dd88
+                const response =await axios.post(
+                  'http://localhost:5000/create-guide',
+                 formData, {
+                  headers: {
+                    'Content-Type': 'multipart/form-data'
+                  },
+                  withCredentials: false,
+              });
+              if(response.data.success === 1 )
+    
+              {
+                return response.data;
+              }
+            }
+          }
+        }
+      }
       },
     });
   };
