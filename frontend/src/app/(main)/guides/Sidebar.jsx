@@ -1,65 +1,74 @@
-import { useState } from 'react';
-import { Group, Code } from '@mantine/core';
+'use client';
+import { Group, Code, ScrollArea, rem, Title } from '@mantine/core';
 import {
-  IconBellRinging,
-  IconFingerprint,
-  IconKey,
-  IconSettings,
-  Icon2fa,
-  IconDatabaseImport,
-  IconReceipt2,
-  IconSwitchHorizontal,
-  IconLogout,
-  IconBook,
+  IconNotes,
+  IconCalendarStats,
+  IconGauge,
+  IconPresentationAnalytics,
+  IconFileAnalytics,
+  IconAdjustments,
+  IconLock,
 } from '@tabler/icons-react';
-import { MantineLogo } from '@mantinex/mantine-logo';
+import { UserButton } from './UserButton/UserButton';
 import classes from './sidebar.module.css';
+import { LinksGroup } from './NavbarLinksGroup/NavbarLinksGroup';
 
-const data = [
-  { link: '', label: 'Notifications', icon: IconBellRinging },
-  { link: '', label: 'Billing', icon: IconReceipt2 },
-  { link: '', label: 'Security', icon: IconFingerprint },
-  { link: '', label: 'SSH Keys', icon: IconKey },
-  { link: '', label: 'Databases', icon: IconDatabaseImport },
-  { link: '', label: 'Authentication', icon: Icon2fa },
-  { link: '', label: 'Other Settings', icon: IconSettings },
+const mockdata = [
+  { label: 'Dashboard', icon: IconGauge },
+  {
+    label: 'Market news',
+    icon: IconNotes,
+    initiallyOpened: true,
+    links: [
+      { label: 'Overview', link: '/' },
+      { label: 'Forecasts', link: '/' },
+      { label: 'Outlook', link: '/' },
+      { label: 'Real time', link: '/' },
+    ],
+  },
+  {
+    label: 'Releases',
+    icon: IconCalendarStats,
+    links: [
+      { label: 'Upcoming releases', link: '/' },
+      { label: 'Previous releases', link: '/' },
+      { label: 'Releases schedule', link: '/' },
+    ],
+  },
+  { label: 'Analytics', icon: IconPresentationAnalytics },
+  { label: 'Contracts', icon: IconFileAnalytics },
+  { label: 'Settings', icon: IconAdjustments },
+  {
+    label: 'Security',
+    icon: IconLock,
+    links: [
+      { label: 'Enable 2FA', link: '/' },
+      { label: 'Change password', link: '/' },
+      { label: 'Recovery codes', link: '/' },
+    ],
+  },
 ];
 
-export function Sidebar({guidesData, selGuide, setSelGuide}) {
-
-  const links = guidesData.map((item) => (
-    <a
-    
-      className={classes.link}
-      data-active={selGuide && (selGuide.title === item.title) || undefined}
-      key={item.title}
-      onClick={(event) => {
-        event.preventDefault();
-        setSelGuide(item);
-      }}
-    >
-      <IconBook className={classes.linkIcon} stroke={1.5} />
-      <span>{item.title}</span>
-    </a>
-  ));
+const Sidebar = ({guidesData, selGuide, setSelGuide, categories}) => {
+  const links = mockdata.map((item) => <LinksGroup {...item} key={item.label} />);
 
   return (
     <nav className={classes.navbar}>
-      <div className={classes.navbarMain}>
-        {links}
+      <div className={classes.header}>
+        <Title order={2} style={{ marginBottom: rem(20) }}>
+          Guides
+        </Title>
       </div>
 
-      <div className={classes.footer}>
-        <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
-          <IconSwitchHorizontal className={classes.linkIcon} stroke={1.5} />
-          <span>Change account</span>
-        </a>
+      <ScrollArea className={classes.links}>
+        <div className={classes.linksInner}>{links}</div>
+      </ScrollArea>
 
-        <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
-          <IconLogout className={classes.linkIcon} stroke={1.5} />
-          <span>Logout</span>
-        </a>
+      <div className={classes.footer}>
+        <UserButton />
       </div>
     </nav>
   );
 }
+
+export default Sidebar;

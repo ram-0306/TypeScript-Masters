@@ -4,6 +4,11 @@ import classes from './page.module.css'
 import { HomeHeader } from './HomeHeader';
 import Footer from './Footer';
 import Features from './Features';
+import Faq from './user/faq/page';
+import EmbeddedVideo from './EmbeddedVideo';
+import review from './user/review/page';
+
+
 export default function Home() {
   return (
     <>
@@ -26,6 +31,9 @@ export default function Home() {
         </Container>
       </div>
         <Features />
+        <EmbeddedVideo />
+        <Faq />
+        <review/>
         <Footer/>
     </>
 

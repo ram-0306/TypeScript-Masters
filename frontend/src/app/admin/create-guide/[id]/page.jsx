@@ -9,7 +9,7 @@ import Quote from '@editorjs/quote';
 import Table from '@editorjs/table';
 import CodeTool from '@editorjs/code';
 import { useParams } from "next/navigation";
-import { Button, TextInput } from "@mantine/core";
+import { Button, Card, Container, Select, TextInput, Title } from "@mantine/core";
 import { IconPlus } from "@tabler/icons-react";
 import { enqueueSnackbar } from "notistack";
 // import
@@ -24,14 +24,30 @@ const DEFAULT_INITIAL_DATA = {
         "level": 1
       }
     },
+    {
+      id: "hZAjSnqYMX",
+      type: "image",
+      data: {
+      file: {
+      url: "Login-img.png",} ,
+      withBorder: false,
+      withBackground: false,
+      stretched: true,
+      caption: "CodeX Code Camp 2019",} ,} ,
   ]
 }
 
+
+const CATEGORIES = ['Basics',
+  'Difference between JavaScript and TypeScript',
+  'TypeScript Primitive Types',
+];
 
 const EditorComponent = () => {
   const ejInstance = useRef();
 
   const [title, setTitle] = useState('');
+  const [category, setCategory] = useState(CATEGORIES[0]);
 
   const { id } = useParams();
   // console.log(id);
@@ -80,9 +96,14 @@ const EditorComponent = () => {
         image: SimpleImage,
         checklist: Checklist,
         quote: Quote,
+<<<<<<< HEAD
         table: Table,
         code:CodeTool
         
+=======
+        table: Table
+
+>>>>>>> 8f9d7c35c1b9a3f28c476d6a92236424d3e4dd88
       },
     });
   };
@@ -112,16 +133,17 @@ const EditorComponent = () => {
           method: 'PUT',
           body: JSON.stringify({
             content: result,
-            title
+            title,
+            category
           }),
           headers: {
             'Content-Type': 'application/json'
           }
         })
-        .then((response) => {
-          console.log(response.status);
-          enqueueSnackbar('Guide Updated Successfully', { variant: 'success' });
-        })
+          .then((response) => {
+            console.log(response.status);
+            enqueueSnackbar('Guide Updated Successfully', { variant: 'success' });
+          })
       }).catch((err) => {
         console.log(err);
       });
@@ -133,14 +155,29 @@ const EditorComponent = () => {
 
   return <>
 
-    <TextInput label="Guide Title" value={title} onChange={e => setTitle(e.target.value)} />
-    <Button justify="center" leftSection={<IconPlus />} variant="gradient"
-      gradient={{ from: 'blue', to: 'cyan', deg: 90 }}
-      onClick={updateGuide}
-    >
-      Update
-    </Button>
-    <div id='editorjs'></div></>
+    <Container size={'md'}>
+      <Card shadow="xs" padding="md" radius="md" style={{ marginBottom: 20 }}>
+        <Title order={3} my={4}>Guide Editor</Title>
+        <TextInput mb={20} label="Guide Title" value={title} onChange={e => setTitle(e.target.value)} />
+        <Select
+          mb={20}
+          label="Select category"
+          placeholder="Pick value"
+          value={category}
+          onChange={setCategory}
+          data={CATEGORIES}
+        />
+        <Button justify="center" leftSection={<IconPlus />} variant="gradient"
+          gradient={{ from: 'blue', to: 'cyan', deg: 90 }}
+          onClick={updateGuide}
+        >
+          Update
+        </Button>
+      </Card>
+    </Container>
+
+    <div id='editorjs'></div>
+  </>
 }
 
 export default EditorComponent;
