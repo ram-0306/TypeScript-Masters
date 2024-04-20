@@ -52,7 +52,12 @@ const Login = () => {
         console.log(response.status);
         if (response.status === 200) {
           enqueueSnackbar('User LoggedIn Successfully', { variant: 'success' });
-          router.push('/');
+          response.json()
+          .then((data) => {
+              console.log(data);
+              sessionStorage.setItem('user', JSON.stringify(data));
+              router.push('/guides');
+          })
         } else if (response.status === 401) {
           enqueueSnackbar('Invalide Credential', { variant: 'error' });
         }
