@@ -155,12 +155,10 @@ const postQuestion = () => {
         <Paper withBorder shadow="md" p={30} radius="md" mt="xl">
           <form onSubmit={quesForm.onSubmit(quesSubmit)}>
             <TextInput
-              id='question'
               required
               label="Your Question"
               placeholder="feel free to ask"
-              value={quesForm.values.question}
-              onChange={(event) => quesForm.setFieldValue('question', event.currentTarget.value)}
+              {...form.getInputProps('email')}
             />
 
             <Group justify="centre" mt="lg">
