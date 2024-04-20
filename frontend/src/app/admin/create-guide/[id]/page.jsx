@@ -109,10 +109,10 @@ const EditorComponent = () => {
              async uploadByFile(file){
                 // your own uploading logic here
                 const formData = new FormData();
-                formData.append('file', file);
+                formData.append('myfile', file);
 
                 const response =await axios.post(
-                  'http://localhost:5000/create-guide',
+                  'http://localhost:5000/util/uploadfile',
                  formData, {
                   headers: {
                     'Content-Type': 'multipart/form-data'
