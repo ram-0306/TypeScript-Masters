@@ -23,6 +23,16 @@ const DEFAULT_INITIAL_DATA = {
         "level": 1
       }
     },
+    {
+      id: "hZAjSnqYMX",
+      type: "image",
+      data: {
+      file: {
+      url: "Login-img.png",} ,
+      withBorder: false,
+      withBackground: false,
+      stretched: true,
+      caption: "CodeX Code Camp 2019",} ,} ,
   ]
 }
 
