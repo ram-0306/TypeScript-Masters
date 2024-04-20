@@ -7,6 +7,7 @@ import SimpleImage from '@editorjs/image';
 import Checklist from '@editorjs/checklist';
 import Quote from '@editorjs/quote';
 import Table from '@editorjs/table';
+import CodeTool from '@editorjs/code';
 import { useParams } from "next/navigation";
 import { Button, TextInput } from "@mantine/core";
 import { IconPlus } from "@tabler/icons-react";
@@ -79,7 +80,8 @@ const EditorComponent = () => {
         image: SimpleImage,
         checklist: Checklist,
         quote: Quote,
-        table: Table
+        table: Table,
+        code:CodeTool
         
       },
     });
