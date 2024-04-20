@@ -53,14 +53,14 @@ const Playground = () => {
                     <Grid.Col span={{ md: 6 }}>
 
                         <NativeSelect value={inputLanguage} onChange={e => setInputLanguage(e.target.value)} radius="md" label="Language" description="Select language" data={['Javascript', 'TypeScript', 'Python']} mb={30} />
-                        <Editor defaultLanguage='javascript' language={inputLanguage.toLowerCase()} theme='vs-dark' height={'50vh'} value={inputCode} onChange={setInputCode} />
+                        <Editor  language={inputLanguage.toLowerCase()} theme='vs-dark' height={'50vh'} value={inputCode} onChange={setInputCode} />
 
                     </Grid.Col>
 
                     <Grid.Col span={{ md: 6 }}>
 
                         <NativeSelect value={outputLanguage} onChange={e => setOutputLanguage(e.target.value)} radius="md" label="Language" description="Select language" data={['Javascript', 'Java', 'TypeScript']} mb={30} />
-                        <Editor defaultLanguage='typescript' language={outputLanguage.toLowerCase()} theme='vs-dark' height={'50vh'} value={outputCode} onChange={setOutputCode} />
+                        <Editor  language={outputLanguage.toLowerCase()} theme='vs-dark' height={'50vh'} value={outputCode} onChange={setOutputCode} />
 
                     </Grid.Col>
 

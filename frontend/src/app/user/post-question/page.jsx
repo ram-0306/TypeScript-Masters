@@ -50,7 +50,7 @@ const EditorComponent = () => {
         checklist: Checklist,
         quote: Quote,
         table: Table
-        
+
       },
     });
   };
@@ -70,7 +70,7 @@ const EditorComponent = () => {
 
 
   const updateGuide = () => {
-   
+
     ejInstance.current.save()
       .then((result) => {
         console.log(result);
@@ -84,10 +84,10 @@ const EditorComponent = () => {
             'Content-Type': 'application/json'
           }
         })
-        .then((response) => {
-          console.log(response.status);
-          enqueueSnackbar('Guide Updated Successfully', { variant: 'success' });
-        })
+          .then((response) => {
+            console.log(response.status);
+            enqueueSnackbar('Guide Updated Successfully', { variant: 'success' });
+          })
       }).catch((err) => {
         console.log(err);
       });
@@ -155,12 +155,10 @@ const postQuestion = () => {
         <Paper withBorder shadow="md" p={30} radius="md" mt="xl">
           <form onSubmit={quesForm.onSubmit(quesSubmit)}>
             <TextInput
-              id='question'
               required
               label="Your Question"
               placeholder="feel free to ask"
-              value={quesForm.values.question}
-              onChange={(event) => quesForm.setFieldValue('question', event.currentTarget.value)}
+              {...form.getInputProps('email')}
             />
 
             <Group justify="centre" mt="lg">

@@ -10,6 +10,7 @@ const guideRouter = require('./routers/guideRouter')
 const feedbackRouter = require('./routers/feedbackRouter')
 const questionRouter = require('./routers/questionRouter')
 const playRouter = require('./routers/playgroundRouter')
+const utilRouter = require('./routers/utilRouter')
 
 //middleware
 
@@ -24,6 +25,7 @@ app.use ('/guide',guideRouter);
 app.use ('/feedback',feedbackRouter);
 app.use ('/question',questionRouter);
 app.use ('/playground',playRouter);
+app.use ('/util',utilRouter);
 
 app.get('/',(req, res)=>{
 res.send('response from express')

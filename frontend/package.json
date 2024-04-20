@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@editorjs/checklist": "^1.6.0",
+    "@editorjs/code": "^2.9.0",
     "@editorjs/editorjs": "^2.29.1",
     "@editorjs/header": "^2.8.1",
     "@editorjs/image": "^2.9.0",
@@ -28,6 +29,7 @@
     "@nivo/pie": "^0.85.1",
     "@tabler/icons-react": "^2.47.0",
     "@uiw/react-md-editor": "^4.0.4",
+    "axios": "^1.6.8",
     "child_process": "^1.0.2",
     "devicon": "^2.16.0",
     "formik": "^2.4.5",
