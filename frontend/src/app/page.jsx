@@ -6,6 +6,7 @@ import Footer from './Footer';
 import Features from './Features';
 import Faq from './user/faq/page';
 import EmbeddedVideo from './EmbeddedVideo';
+import Developer from './user/Developer/page';
 import review from './user/review/page';
 
 
@@ -32,7 +33,8 @@ export default function Home() {
       </div>
         <Features />
         <EmbeddedVideo />
-        <Faq />
+        <Developer />
+       <Faq />
         <review/>
         <Footer/>
     </>
