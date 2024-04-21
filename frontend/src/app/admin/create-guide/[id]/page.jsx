@@ -13,8 +13,6 @@ import { IconPlus } from "@tabler/icons-react";
 import { enqueueSnackbar } from "notistack";
 import ImageTool from '@editorjs/image';
 import axios from 'axios';
-// import
-
 const DEFAULT_INITIAL_DATA = {
   "time": new Date().getTime(),
   "blocks": [
@@ -202,6 +200,7 @@ const EditorComponent = () => {
 
     <div id='editorjs'></div>
   </>
+
 }
 
 export default EditorComponent;
