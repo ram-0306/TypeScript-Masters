@@ -5,6 +5,7 @@ const myschema = new Schema({
     title: {type:String, require:true},
     question: {type:String, require:true},
     category:{type : String},
+    code : {type: String},
     tags: {type: Array},
     createdAt:{type : Date, default: Date.now},
 });

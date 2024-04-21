@@ -1,6 +1,7 @@
 'use client'
 import { TextInput, Textarea, SimpleGrid, Group, Title, Button, Container } from '@mantine/core';
 import { useForm } from '@mantine/form';
+import { enqueueSnackbar } from 'notistack';
 
 const feedback = () => {
   const form = useForm({
@@ -33,7 +34,11 @@ const feedback = () => {
         })
           .then((response) => {
             console.log(response.status);
-
+             if(response.status === 200){
+              enqueueSnackbar("feedback added successfully", {variant:"success"})
+             }else{
+              enqueueSnackbar("something went wrong",{variant:"warning"})
+             }
           }).catch((err) => {
             console.log(err);
           });

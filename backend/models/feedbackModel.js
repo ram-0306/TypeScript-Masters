@@ -8,4 +8,4 @@ const feedbackSchema = new Schema({
     createdAt: { type: Date, default: Date.now }
 });
 
-module.exports = model("Feedback", feedbackSchema);
+module.exports = model("feedback", feedbackSchema);
