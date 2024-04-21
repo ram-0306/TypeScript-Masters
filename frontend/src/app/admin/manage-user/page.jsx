@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import { Avatar, Badge, Table, Group, Text, ActionIcon, Anchor, rem } from '@mantine/core';
-import { IconPencil, IconTrash } from '@tabler/icons-react';
+import { Avatar, Badge, Table, Group, Text, ActionIcon, Anchor, rem, Button } from '@mantine/core';
+import { IconPencil, IconPlus, IconTrash } from '@tabler/icons-react';
 
 const data = [
   {
@@ -75,6 +75,19 @@ const ManageUser = () => {
     fetchUserData();
   }, [])
 
+  const deleteUser = (id) => {
+    fetch('http://localhost:5000/user/delete/' + id, {
+      method: 'DELETE'
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          fetchUserData();
+        }
+      }).catch((err) => {
+        console.log(err);
+      });
+  }
+
   const displayUser = () => {
     return (
       <Table.ScrollContainer minWidth={800}>
@@ -94,6 +107,16 @@ const ManageUser = () => {
               return (
                   <Table.Tr>
                     <Table.Td>{user.name}</Table.Td>
+                    <Table.Td>{user.email}</Table.Td>
+                    <Table.Td>{user.password}</Table.Td>
+                    <Table.Td>
+                    <Button justify="center"  variant="gradient"
+                    gradient={{ from: 'red', to: 'cyan', deg: 90 }}
+                    onClick={() => deleteUser(user._id)}
+                  >
+                    Delete
+                  </Button>
+                    </Table.Td>
                   </Table.Tr>
                 )
               })
