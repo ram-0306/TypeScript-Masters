@@ -38,7 +38,8 @@ const Developer = () => {
         </div>
       </Paper>
     </div>
+    
   );
 }
 
-export default Developer;
+export default Developer; 

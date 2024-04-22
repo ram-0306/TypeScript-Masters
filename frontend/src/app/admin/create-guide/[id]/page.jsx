@@ -27,12 +27,15 @@ const DEFAULT_INITIAL_DATA = {
       id: "hZAjSnqYMX",
       type: "image",
       data: {
-      file: {
-      url: "Login-img.png",} ,
-      withBorder: false,
-      withBackground: false,
-      stretched: true,
-      caption: "CodeX Code Camp 2019",} ,} ,
+        file: {
+          url: "Login-img.png",
+        },
+        withBorder: false,
+        withBackground: false,
+        stretched: true,
+        caption: "CodeX Code Camp 2019",
+      },
+    },
   ]
 }
 
@@ -99,35 +102,44 @@ const EditorComponent = () => {
         image: {
           class: ImageTool,
           config: {
-            /**
-             * Custom uploader
-             */
+            // endpoints: {
+            //   byFile: 'http://localhost:5000/util/uploadfile', // Your backend file uploader endpoint
+            //   byUrl: 'http://localhost:5000', // Your endpoint that provides uploading by Url
+            // }
             uploader: {
-  
-             async uploadByFile(file){
+              async uploadByFile (file) {
+                console.log(file);
                 // your own uploading logic here
                 const formData = new FormData();
                 formData.append('myfile', file);
 
-                const response =await axios.post(
+                const response = await axios.post(
                   'http://localhost:5000/util/uploadfile',
-                 formData, {
+                  formData, {
                   headers: {
                     'Content-Type': 'multipart/form-data'
-                  },
-                  withCredentials: false,
-              });
-              if(response.data.success === 1 )
-    
-              {
-                return response.data;
+                  }
+                })
+                
+                if(response.status === 200){
+                  console.log(response.data);
+                  return {
+                    success: 1,
+                    file: {
+                      url: response.data.url
+                    }
+                  }
+                }else{
+                  return {
+                    success: 0
+                  }
+                }
               }
             }
           }
         }
       }
-      },
-    });
+      });
   };
 
   // This will run only once
