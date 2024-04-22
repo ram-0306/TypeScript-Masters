@@ -5,8 +5,6 @@ import { HomeHeader } from './HomeHeader';
 import Footer from './Footer';
 import Features from './Features';
 import Faq from './user/faq/page';
-import EmbeddedVideo from './EmbeddedVideo';
-import Animation from './user/animation'; // Corrected import name
 import React from 'react'; // Don't forget to import React
 
 export default function Home() {
@@ -37,9 +35,8 @@ export default function Home() {
         </Container>
       </div>
       <Features />
-      <EmbeddedVideo />
+     
       <Faq />
-      <Animation items={items} /> {/* Corrected component name */}
       <Footer/>
     </>
   );

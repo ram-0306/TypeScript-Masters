@@ -1,5 +1,5 @@
-'use client'
-import { useToggle, upperFirst } from '@mantine/hooks';
+'use client';
+import React from 'react';
 import { useForm } from '@mantine/form';
 import {
   TextInput,
@@ -7,33 +7,28 @@ import {
   Text,
   Paper,
   Group,
-  PaperProps,
   Button,
   Divider,
-  Checkbox,
   Anchor,
   Stack,
   Container,
+  Flex,
+  Image,
 } from '@mantine/core';
-import { GoogleButton } from './GoogleButton';
-import { TwitterButton } from './TwitterButton';
 import classes from './login.module.css';
 import Link from 'next/link';
 import { enqueueSnackbar } from 'notistack';
-import { useRouter } from 'next/navigation';
-
+import { useRouter } from 'next/navigation'; // Fixed import
+import { GoogleButton } from './GoogleButton';
+import { TwitterButton } from './TwitterButton';
 
 const Login = () => {
-
   const router = useRouter();
-
-
   const form = useForm({
     initialValues: {
       email: '',
       password: ''
     },
-
     validate: {
       email: (val) => (/^\S+@\S+$/.test(val) ? null : 'Invalid email'),
       password: (val) => (val.length < 6 ? 'Password should include at least 6 characters' : null),
@@ -53,28 +48,35 @@ const Login = () => {
         if (response.status === 200) {
           enqueueSnackbar('User LoggedIn Successfully', { variant: 'success' });
           response.json()
-          .then((data) => {
+            .then((data) => {
               console.log(data);
               sessionStorage.setItem('user', JSON.stringify(data));
               router.push('/guides');
-          })
+            })
         } else if (response.status === 401) {
-          enqueueSnackbar('Invalide Credential', { variant: 'error' });
-        }
-        else {
+          enqueueSnackbar('Invalid Credential', { variant: 'error' }); // Corrected typo
+        } else {
           enqueueSnackbar('Something went wrong', { variant: 'error' });
         }
-      }).catch((err) => {
+      })
+      .catch((err) => {
         console.log(err);
         enqueueSnackbar('Something went wrong', { variant: 'error' });
       });
   }
 
   return (
-    <div className={classes.background}>
-      <div className={classes.blur}>
-        <Container size="sm" p={110}>
-          <div >
+    <div>
+      <Container size={'lg'} my={50}>
+        <Flex
+          mih={50}
+          gap="md"
+          justify="center"
+          align="center"
+          direction="row"
+          wrap="wrap"
+        >
+          <div>
             <Paper radius="md" p="xl" withBorder className={classes.card}>
               <Text size="lg" fw={500}>
                 Welcome to TypeScript Masters, Login with
@@ -120,9 +122,18 @@ const Login = () => {
               </form>
             </Paper>
           </div>
-        </Container>
-      </div>
+          <div>
+            <Image src="/login-img.svg" alt="Login Image"
+              h={500}
+              w="auto"
+              fit="cover"
+            />
+
+          </div>
+        </Flex>
+      </Container>
     </div>
   );
 }
+
 export default Login;
