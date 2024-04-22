@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
-
-const guideModel = require('../models/questionModel')
+const Model = require('../models/commentModel')
 
 router.post('/add', (req, res) => {
     console.log(req.body);
 
-    new guideModel(req.body).save()
+    new Model(req.body).save()
     .then((result) => {
         res.status(200).json(result);
     }).catch((err) => {
@@ -17,7 +16,7 @@ router.post('/add', (req, res) => {
 });
 
 router.get('/getall', (req, res) => {
-    guideModel.find()
+    Model.find()
     .then((result) => {
         res.status(200).json(result);
     }).catch((err) => {
@@ -27,7 +26,7 @@ router.get('/getall', (req, res) => {
 });
 
 router.get('/getbyid/:id', (req, res) => {
-    guideModel.findById(req.params.id)
+    Model.findById(req.params.id)
     .then((result) => {
         res.status(200).json(result);
     }).catch((err) => {
