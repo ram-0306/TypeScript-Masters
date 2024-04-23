@@ -31,6 +31,8 @@ app.use ('/util',utilRouter);
 app.use ('/answer',answerRouter);
 app.use ('/comment',commentRouter);
 
+app.use(express.static('./static/uploads'));
+
 app.get('/',(req, res)=>{
 res.send('response from express')
 });

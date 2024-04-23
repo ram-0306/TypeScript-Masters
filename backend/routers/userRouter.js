@@ -64,5 +64,14 @@ router.post('/authenticate',(req,res) => {
     });
  });
 
+ router.get("/getbygmail/:gmail", (req,res) => {
+    Model.findOne({gmail: req.params.gmail })
+    .then((result) => {
+        res.status(200).json(result);
+    }).catch((err) => {
+        res.status(500).json(err);
+    })
+ })
+
 
 module.exports = router;
