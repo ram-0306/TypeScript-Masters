@@ -39,6 +39,7 @@ const Developer = () => {
       </Paper>
     </div>
     
+    
   );
 }
 
