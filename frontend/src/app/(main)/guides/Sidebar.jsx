@@ -6,7 +6,7 @@ import { LinksGroup } from './NavbarLinksGroup/NavbarLinksGroup';
 
 
 const Sidebar = ({guidesData, selGuide, setSelGuide}) => {
-  const links = guidesData.map((item) => <LinksGroup {...item} key={item.label} />);
+  const links = guidesData.map((item) => <LinksGroup setSelGuide={setSelGuide} {...item} key={item.label} />);
 
   return (
     <nav className={classes.navbar}>

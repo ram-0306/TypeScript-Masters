@@ -28,9 +28,7 @@ export default function Layout({children}) {
                 {
                   category: item,
                   icon: IconCalendarStats,
-                  guides: result.filter((guide) => guide.category === item).map((guide) => (
-                    { label: guide.title, link: '/guides/' + guide._id }
-                  ))
+                  guides: result.filter((guide) => guide.category === item)
                 }
               ));
 

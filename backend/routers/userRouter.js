@@ -64,10 +64,14 @@ router.post('/authenticate',(req,res) => {
     });
  });
 
- router.get("/getbyemail/:email", (req,res) => {
+ router.get("/getbymail/:email", (req,res) => {
     Model.findOne({email: req.params.email })
     .then((result) => {
-        res.status(200).json(result);
+        if(result){
+            res.status(200).json(result);
+        }else{
+            res.status(404).json({status: "User not found"});
+        }
     }).catch((err) => {
         res.status(500).json(err);
     })

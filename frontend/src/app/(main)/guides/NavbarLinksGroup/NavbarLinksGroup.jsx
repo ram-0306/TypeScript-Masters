@@ -12,18 +12,21 @@ const SliceString = (str, len) => {
 
 }
 
-export function LinksGroup({ icon: Icon, category, initiallyOpened, guides }) {
+export function LinksGroup({ icon: Icon, category, initiallyOpened, guides, setSelGuide }) {
   const hasLinks = Array.isArray(guides);
   const [opened, setOpened] = useState(initiallyOpened || false);
   const items = (hasLinks ? guides : []).map((guide) => (
     <Text
       component={Link}
       className={classes.link}
-      href={guide.link}
-      key={guide.label}
-      // onClick={(event) => event.preventDefault()}
+      href="#"
+      key={guide.title}
+      onClick={(event) => {
+        event.preventDefault()
+        setSelGuide(guide);
+      }}
     >
-      {SliceString(guide.label, 30)}
+      {SliceString(guide.title, 30)}
     </Text>
   ));
 
