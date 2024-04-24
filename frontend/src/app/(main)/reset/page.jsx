@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 
 import React, { useRef, useState } from "react";
 import { useNavigate } from "next/navigation";
+import { enqueueSnackbar } from "notistack";
 
 const ResetPassword = () => {
   const emailRef = useRef(null);
@@ -17,9 +18,9 @@ const ResetPassword = () => {
 
   const checkMailExists = async () => {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/user/getbygmail/${emailRef.current.value}`
+      `http://localhost:5000/user/getbyemail/${emailRef.current.value}`
     );
-    // console.log(res.status);
+    console.log(res.status);
     const data = await res.json();
     // console.log(data);
     setVerifiedUser(data);
@@ -31,7 +32,7 @@ const ResetPassword = () => {
       enqueueSnackbar("Email not registered", { variant: "error" });
       return;
     }
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/util/sendotp`, {
+    const res = await fetch(`${"http://localhost:5000"}/util/sendotp`, {
       method: "POST",
       body: JSON.stringify({ email: emailRef.current.value }),
       headers: {
@@ -41,7 +42,7 @@ const ResetPassword = () => {
 
     const verifyOTP = async() => {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/util/verifyotp/${
+        `${"http://localhost:5000"}/util/verifyotp/${
           emailRef.current.value
         }/${otpRef.current.value}`
       );
@@ -120,7 +121,7 @@ const ResetPassword = () => {
               </div>
               <div>
                 <button
-                  // onClick={verifyOTP}
+                // onClick={verifyOTP}
                   type="Submit"
                   className="mt-2 radius-xl bg-[#FC9B3C] border border-[#FC9B3C] w-1/2 rounded-lg"
                 >

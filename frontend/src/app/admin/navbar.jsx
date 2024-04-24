@@ -31,6 +31,7 @@ import {
 } from '@tabler/icons-react';
 import classes from './navbar.module.css';
 import Link from 'next/link';
+import { ActionToggle } from '../(main)/Action/page';
 
 
 const mockdata = [
@@ -186,7 +187,7 @@ const Navbar = () =>  {
           <a href="#" className={classes.link}>
             Academy
           </a>
-
+        
           <Divider my="sm" />
 
           <Group justify="center" grow px="md">

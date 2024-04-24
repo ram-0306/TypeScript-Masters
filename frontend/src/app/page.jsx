@@ -1,13 +1,16 @@
 'use client'
 import { Overlay, Container, Title, Button, Text } from '@mantine/core';
 import classes from './page.module.css';
-import { HomeHeader } from './HomeHeader';
 import Footer from './Footer';
 import Features from './Features';
 import Faq from './user/faq/page';
 import React from 'react'; // Don't forget to import React
+import HomeHeader from './HomeHeader';
 
-export default function Home() {
+
+
+
+const  Home = () => {
   const items = [
     { id: 1, title: "TypeScript", subtitle: "TypeScript stands in an unusual relationship to JavaScript. TypeScript offers all of JavaScript's features, and an additional layer on top of these: TypeScript's type system. For example, JavaScript provides language primitives like string and number , but it doesn't check that you've consistently assigned these." },
     { id: 2, title: "Title 2", subtitle: "Subtitle 2" },
@@ -41,3 +44,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;

@@ -3,6 +3,7 @@ import { Box, Button, Card, Container, Flex, Group, Paper, SimpleGrid, Text, Tit
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
+
 const QuesAndAns = () => {
 
   const [questionList, setQuestionList] = useState([]);

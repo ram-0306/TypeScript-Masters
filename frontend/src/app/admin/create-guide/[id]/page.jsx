@@ -40,9 +40,9 @@ const DEFAULT_INITIAL_DATA = {
 }
 
 
-const CATEGORIES = ['Basics',
+const CATEGORIES = ['Introduction to TypeScript',
   'Difference between JavaScript and TypeScript',
-  'TypeScript Primitive Types',
+  'How to install TypeScript?','Hello World in TypeScript', 'How to Execute TypeScript program using command line?','Variable in TypeSCript',
 ];
 
 const EditorComponent = () => {
