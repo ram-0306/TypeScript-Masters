@@ -14,16 +14,16 @@ import classes from './sidebar.module.css';
 import { LinksGroup } from './NavbarLinksGroup/NavbarLinksGroup';
 
 const mockdata = [
-  { label: 'Dashboard', icon: IconGauge },
+  { label: 'TypeScript Introduction', icon: IconGauge },
   {
-    label: 'Market news',
+    label: 'TypeScript Basics',
     icon: IconNotes,
     initiallyOpened: true,
     links: [
-      { label: 'Overview', link: '/' },
-      { label: 'Forecasts', link: '/' },
-      { label: 'Outlook', link: '/' },
-      { label: 'Real time', link: '/' },
+      { label: 'Introduction to TypeScript', link: '/' },
+      { label: 'Diffrence between JavaScript and TypeScript', link: '/' },
+      { label: 'How to install TypeScript', link: '/' },
+      { label: 'Hello wrold ! in typescript', link: '/' },
     ],
   },
   {
