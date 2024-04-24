@@ -5,7 +5,7 @@ const myschema = new Schema({
     subtitle: { type: String, default: 'write subtitle here...' },
     category: { type: String, default: 'Unknown' },
     content: { type: Object },
-    category: { type: String },
+    category: { type: String, default: 'Miscellaneous' },
     createdAt: { type: Date, default: Date.now },
 });
 

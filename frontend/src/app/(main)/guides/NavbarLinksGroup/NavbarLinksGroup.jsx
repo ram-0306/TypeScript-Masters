@@ -1,21 +1,29 @@
 import { useState } from 'react';
 import { Group, Box, Collapse, ThemeIcon, Text, UnstyledButton, rem } from '@mantine/core';
-import { IconCalendarStats, IconChevronRight } from '@tabler/icons-react';
+import { IconCalendarStats, IconChevronRight, IconNote } from '@tabler/icons-react';
 import classes from './NavbarLinksGroup.module.css';
+import Link from 'next/link';
 
+const SliceString = (str, len) => {
+  if (str.length > len) {
+    return str.slice(0, len) + '...';
+  }
+  return str;
 
-export function LinksGroup({ icon: Icon, label, initiallyOpened, links }) {
-  const hasLinks = Array.isArray(links);
+}
+
+export function LinksGroup({ icon: Icon, category, initiallyOpened, guides }) {
+  const hasLinks = Array.isArray(guides);
   const [opened, setOpened] = useState(initiallyOpened || false);
-  const items = (hasLinks ? links : []).map((link) => (
+  const items = (hasLinks ? guides : []).map((guide) => (
     <Text
-      component="a"
+      component={Link}
       className={classes.link}
-      href={link.link}
-      key={link.label}
-      onClick={(event) => event.preventDefault()}
+      href={guide.link}
+      key={guide.label}
+      // onClick={(event) => event.preventDefault()}
     >
-      {link.label}
+      {SliceString(guide.label, 30)}
     </Text>
   ));
 
@@ -25,9 +33,9 @@ export function LinksGroup({ icon: Icon, label, initiallyOpened, links }) {
         <Group justify="space-between" gap={0}>
           <Box style={{ display: 'flex', alignItems: 'center' }}>
             <ThemeIcon variant="light" size={30}>
-              <Icon style={{ width: rem(18), height: rem(18) }} />
+              <IconNote style={{ width: rem(18), height: rem(18) }} />
             </ThemeIcon>
-            <Box ml="md">{label}</Box>
+            <Box ml="md">{SliceString(category, 25)}</Box>
           </Box>
           {hasLinks && (
             <IconChevronRight

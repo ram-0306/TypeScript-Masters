@@ -14,6 +14,7 @@ export default function Layout({children}) {
   const [guidesList, setGuidesList] = useState([])
   const [selGuide, setSelGuide] = useState(null);
   const [categoryWiseGuides, setCategoryWiseGuides] = useState([]);
+  const [guideCategories, setGuideCategories] = useState([]);
 
   const fetchGuidesData = () => {
     fetch('http://localhost:5000/guide/getall')
@@ -23,18 +24,18 @@ export default function Layout({children}) {
             .then((result) => {
               console.log(result);
               const categories = Array.from(new Set(result.map((item) => item.category)));
-              const tempData = result.map(item => (
+              const tempData = categories.map(item => (
                 {
-                  label: item.category,
+                  category: item,
                   icon: IconCalendarStats,
-                  links: result.filter((guide) => guide.category === item.category).map((guide) => (
+                  guides: result.filter((guide) => guide.category === item).map((guide) => (
                     { label: guide.title, link: '/guides/' + guide._id }
                   ))
                 }
               ));
 
               console.log(tempData);
-              // setCategoryWiseGuides();
+              setCategoryWiseGuides(tempData);
               setGuidesList(result);
             })
         }
@@ -65,7 +66,7 @@ export default function Layout({children}) {
         </Group>
       </AppShell.Header>
       <AppShell.Navbar>
-        <Sidebar guidesData={guidesList} selGuide={selGuide} setSelGuide={setSelGuide} />
+        <Sidebar guidesData={categoryWiseGuides} selGuide={selGuide} setSelGuide={setSelGuide} />
       </AppShell.Navbar>
       <AppShell.Main>
         <Guides selGuide={selGuide} />
