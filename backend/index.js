@@ -10,7 +10,7 @@ const guideRouter = require('./routers/guideRouter')
 const feedbackRouter = require('./routers/feedbackRouter')
 const questionRouter = require('./routers/questionRouter')
 const playRouter = require('./routers/playgroundRouter')
-const utilRouter = require('./routers/utilRouter')
+// const utilRouter = require('./routers/utilRouter')
 const answerRouter = require('./routers/answerRouter');
 const commentRouter = require('./routers/commentRouter');
 
@@ -27,7 +27,7 @@ app.use ('/guide',guideRouter);
 app.use ('/feedback',feedbackRouter);
 app.use ('/question',questionRouter);
 app.use ('/playground',playRouter);
-app.use ('/util',utilRouter);
+// app.use ('/util',utilRouter);
 app.use ('/answer',answerRouter);
 app.use ('/comment',commentRouter);
 
