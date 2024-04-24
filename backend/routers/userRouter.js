@@ -64,8 +64,8 @@ router.post('/authenticate',(req,res) => {
     });
  });
 
- router.get("/getbygmail/:gmail", (req,res) => {
-    Model.findOne({gmail: req.params.gmail })
+ router.get("/getbyemail/:email", (req,res) => {
+    Model.findOne({email: req.params.email })
     .then((result) => {
         res.status(200).json(result);
     }).catch((err) => {

@@ -1,3 +1,4 @@
+'use client'
 import {
   HoverCard,
   Group,
@@ -31,6 +32,7 @@ import {
 import classes from './homeheader.module.css';
 import Link from 'next/link';
 
+
 const mockdata = [
   {
     icon: IconCode,
@@ -58,7 +60,7 @@ const mockdata = [
 
 ];
 
-export function HomeHeader() {
+const HomeHeader = () => {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const theme = useMantineTheme();
@@ -149,6 +151,7 @@ export function HomeHeader() {
 
             <Link href={"/login"}><Button variant="default">Log in</Button></Link>
             <Link href={"/signup"} ><Button>Sign up</Button></Link>
+         
            
           </Group>
 
@@ -201,3 +204,5 @@ export function HomeHeader() {
     </Box>
   );
 }
+
+export default HomeHeader;

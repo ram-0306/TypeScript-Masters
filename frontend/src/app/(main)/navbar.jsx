@@ -31,6 +31,8 @@ import {
 } from '@tabler/icons-react';
 import classes from './navbar.module.css';
 import Link from 'next/link';
+import ActionToggle from './Action/page';
+
 
 const mockdata = [
   {
@@ -149,11 +151,14 @@ const navbar = () => {
               Academy
             </a>
           </Group>
-
+          
           <Group visibleFrom="sm">
 
+
             <Link href={"/login"}><Button variant="default">Log in</Button></Link>
+           
             <Link href={"/signup"} ><Button>Sign up</Button></Link>
+            <ActionToggle/>
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
@@ -199,6 +204,7 @@ const navbar = () => {
           <Group justify="center" grow px="md">
             <Button variant="default">Log in</Button>
             <Button>Sign up</Button>
+            <ActionToggle/>
           </Group>
         </ScrollArea>
       </Drawer>

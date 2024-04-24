@@ -3,6 +3,15 @@ import { Box, Button, Center, Container, Text, TextInput } from '@mantine/core';
 import { useParams } from 'next/navigation'
 import React, { useEffect, useRef } from 'react'
 import { useState } from 'react';
+import ReactTimeAgo, { useTimeAgo } from 'react-time-ago'
+import { date } from 'yup';
+import TimeAgo from 'javascript-time-ago'
+
+import en from 'javascript-time-ago/locale/en'
+
+TimeAgo.addDefaultLocale(en)
+
+// const result = useTimeAgo(parameters)
 
 const ViewQuestion = () => {
 
@@ -94,7 +103,8 @@ const ViewQuestion = () => {
 
           <h3>{answer.title}</h3>
           <Text size='md'>{answer.content}</Text>
-          
+          <ReactTimeAgo date={new Date(answer.createdAt)} locale="en-US" />
+
         </div>
       ))}
 
@@ -104,11 +114,11 @@ const ViewQuestion = () => {
   return (
     <div>
 
-    <Container>
-    {displayQuestionDetails()}
+      <Container>
+        {displayQuestionDetails()}
 
-      {displayAnswers()}
-      {answerForm()}
+        {displayAnswers()}
+        {answerForm()}
       </Container>
     </div>
   )
