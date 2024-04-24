@@ -94,10 +94,10 @@ const ManageUser = () => {
         <Table verticalSpacing="md">
           <Table.Thead>
             <Table.Tr>
-              <Table.Th>Employee</Table.Th>
-              <Table.Th>Job title</Table.Th>
-              <Table.Th>Email</Table.Th>
-              <Table.Th>Phone</Table.Th>
+              <Table.Th>Users</Table.Th>
+              <Table.Th>Mail</Table.Th>
+              <Table.Th>Password</Table.Th>
+              <Table.Th>Action</Table.Th>
               <Table.Th />
             </Table.Tr>
           </Table.Thead>
