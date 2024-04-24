@@ -20,6 +20,7 @@ const Developer = () => {
           </Button>
         </div>
       </Paper>
+      
 
       {/* Second Article Card */}
       <Paper shadow="md" p="xl" radius="md" className={classes.card2}>
