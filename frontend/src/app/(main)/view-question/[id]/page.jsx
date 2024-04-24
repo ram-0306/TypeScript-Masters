@@ -1,5 +1,5 @@
 'use client';
-import { Box, Button, TextInput } from '@mantine/core';
+import { Box, Button, Center, Container, Text, TextInput } from '@mantine/core';
 import { useParams } from 'next/navigation'
 import React, { useEffect, useRef } from 'react'
 import { useState } from 'react';
@@ -80,7 +80,7 @@ const ViewQuestion = () => {
     if (currentUser !== null) {
       return <Box>
         <TextInput ref={titleRef} placeholder="Answer" />
-        <Button onClick={submitAnswer}>Submit Answer</Button>
+        <Button onClick={submitAnswer} mt={20}>Submit Answer</Button>
       </Box>
     }
   }
@@ -88,11 +88,13 @@ const ViewQuestion = () => {
   const displayAnswers = () => {
     return <Box>
 
-      <h3>Answer List</h3>
+      {/* <h3>Answer List</h3> */}
       {answerList.map((answer, index) => (
-        <div key={index}>
+        <div key={index} >
+
           <h3>{answer.title}</h3>
-          <p>{answer.content}</p>
+          <Text size='md'>{answer.content}</Text>
+          
         </div>
       ))}
 
@@ -101,9 +103,13 @@ const ViewQuestion = () => {
 
   return (
     <div>
-      {displayQuestionDetails()}
+
+    <Container>
+    {displayQuestionDetails()}
+
       {displayAnswers()}
       {answerForm()}
+      </Container>
     </div>
   )
 }
