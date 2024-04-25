@@ -20,7 +20,7 @@ const ResetPassword = () => {
     const res = await fetch(
       `http://localhost:5000/user/getbyemail/${emailRef.current.value}`
     );
-    console.log(res.status);
+    // console.log(res.status);
     const data = await res.json();
     // console.log(data);
     setVerifiedUser(data);
@@ -90,7 +90,7 @@ const ResetPassword = () => {
                   htmlFor="email"
                   className="block mb-2 text-sm font-medium text-black dark:text-white"
                 >
-                  Your email
+                  Your email addrerss
                 </label>
                 <input
                   type="email"
@@ -121,7 +121,7 @@ const ResetPassword = () => {
               </div>
               <div>
                 <button
-                // onClick={verifyOTP}
+                 // onClick={verifyOTP}
                   type="Submit"
                   className="mt-2 radius-xl bg-[#FC9B3C] border border-[#FC9B3C] w-1/2 rounded-lg"
                 >
