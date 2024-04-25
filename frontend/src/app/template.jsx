@@ -1,11 +1,14 @@
 'use client';
 import { SnackbarProvider } from 'notistack';
 import React from 'react'
+import { AppProvider } from './context/AppContext';
 
 const Template = ({ children }) => {
     return (
         <SnackbarProvider>
-            {children}
+            <AppProvider>
+                {children}
+            </AppProvider>
         </SnackbarProvider>
     )
 }
