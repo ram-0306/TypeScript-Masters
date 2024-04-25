@@ -10,10 +10,12 @@ const Sidebar = ({guidesData, selGuide, setSelGuide}) => {
 
   return (
     <nav className={classes.navbar}>
+    
       <div className={classes.header}>
         <Title order={2}>
           Guides
         </Title>
+       
       </div>
 
       <ScrollArea className={classes.links}>

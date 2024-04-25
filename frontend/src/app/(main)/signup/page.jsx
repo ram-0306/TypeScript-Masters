@@ -14,6 +14,8 @@ import {
   Anchor,
   Stack,
   Container,
+  Flex,
+  Image,
 } from '@mantine/core';
 import { GoogleButton } from './GoogleButton';
 import { TwitterButton } from './TwitterButton';
@@ -58,10 +60,20 @@ const Signup = () => {
   }
 
   return (
+    <div>
     <Container size="md">
+    <Flex
+          mih={50}
+          gap="lg"
+          justify="center"
+          align="center"
+          direction="row"
+          wrap="wrap"
+    >
+    <div>
       <Paper radius="md" p="xl">
         <Text size="lg" Text="center" fw={500}>
-          Welcome to Typescript Masters, Register with
+          Welcome to Typescript Masters, Register Yourself
         </Text>
 
         <Group grow mb="md" mt="md">
@@ -134,8 +146,17 @@ const Signup = () => {
           </Group>
         </form>
       </Paper>
+      </div>
+      <div>
+        <Image src="/signup-img.svg" alt="Signup Image"
+          h={500}
+          w="auto"
+          fit="cover"
+        />
+      </div>
+      </Flex>
     </Container>
-
+</div>
   );
 }
 export default Signup;

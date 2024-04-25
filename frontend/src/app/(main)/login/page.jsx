@@ -70,7 +70,7 @@ const Login = () => {
       <Container size={'lg'} my={50}>
         <Flex
           mih={50}
-          gap="md"
+          gap="lg"
           justify="center"
           align="center"
           direction="row"

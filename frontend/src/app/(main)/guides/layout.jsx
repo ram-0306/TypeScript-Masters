@@ -1,13 +1,14 @@
 'use client';
-import { AppShell, Burger, Group, Skeleton } from '@mantine/core';
+import { AppShell, Burger, Group,Title } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { MantineLogo } from '@mantinex/mantine-logo';
 import Sidebar from './Sidebar';
 import { useEffect, useState } from 'react';
 import Guides from './page';
 import { IconCalendarStats } from '@tabler/icons-react';
+import Link from 'next/link';
+import classes from './page.module.css';
 
-export default function Layout({children}) {
+export default function Layout({ children }) {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
   const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
 
@@ -47,6 +48,7 @@ export default function Layout({children}) {
   }, [])
 
   return (
+
     <AppShell
       header={{ height: 60 }}
       navbar={{
@@ -56,11 +58,14 @@ export default function Layout({children}) {
       }}
       padding="md"
     >
+
       <AppShell.Header>
         <Group h="100%" px="md">
+
           <Burger opened={mobileOpened} onClick={toggleMobile} hiddenFrom="sm" size="sm" />
           <Burger opened={desktopOpened} onClick={toggleDesktop} visibleFrom="sm" size="sm" />
-          <MantineLogo size={30} />
+
+          <Link className={classes.userBtn} style={{ textDecoration: 'none' }} href='/'><Title align="center" weight={700} order={3}>TypeScript Masters</Title></Link>
         </Group>
       </AppShell.Header>
       <AppShell.Navbar>
@@ -70,5 +75,6 @@ export default function Layout({children}) {
         <Guides selGuide={selGuide} />
       </AppShell.Main>
     </AppShell>
+
   );
 }
