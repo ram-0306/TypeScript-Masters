@@ -8,6 +8,7 @@ import SimpleImage from '@editorjs/image';
 import Checklist from '@editorjs/checklist';
 import Quote from '@editorjs/quote';
 import Table from '@editorjs/table';
+import CodeTool from '@editorjs/code';
 
 const DEFAULT_INITIAL_DATA = {
   "time": new Date().getTime(),
@@ -43,7 +44,8 @@ const Guides = ({ selGuide }) => {
         image: SimpleImage,
         checklist: Checklist,
         quote: Quote,
-        table: Table
+        table: Table,
+        code: CodeTool
 
       },
     });
@@ -65,13 +67,13 @@ const Guides = ({ selGuide }) => {
       {
         selGuide !== null ? (
           <>
-            <Title order={3}>{selGuide.title}</Title>
+            <Title align= 'center' order={1}>{selGuide.title}</Title>
             <div id='editorjs'></div>
           </>
         ) : (
           <Title order={3} align="center" c="dimmed">Select a guide from the sidebar</Title>
         )
-      }
+     }
     </div>
   )
 }
