@@ -1,23 +1,29 @@
 import { UnstyledButton, Group, Avatar, Text, rem } from '@mantine/core';
 import { IconChevronRight } from '@tabler/icons-react';
 import classes from './UserButton.module.css';
+import { useRouter } from 'next/navigation';
 
-export function UserButton() {
+export function UserButton({ user }) {
+
+  const router = useRouter();
+
   return (
-    <UnstyledButton className={classes.user}>
+    <UnstyledButton className={classes.user}
+      onClick={() => router.push('/user/profile')}
+    >
       <Group>
         <Avatar
-          src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-8.png"
+          src={`${process.env.NEXT_PUBLIC_API_URL}/${user.avatar}`}
           radius="xl"
         />
 
         <div style={{ flex: 1 }}>
           <Text size="sm" fw={500}>
-            Harriette Spoonlicker
+            {user.name}
           </Text>
 
           <Text c="dimmed" size="xs">
-            hspoonlicker@outlook.com
+            {user.email}
           </Text>
         </div>
 

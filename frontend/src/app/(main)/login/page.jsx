@@ -21,8 +21,12 @@ import { enqueueSnackbar } from 'notistack';
 import { useRouter } from 'next/navigation'; // Fixed import
 import { GoogleButton } from './GoogleButton';
 import { TwitterButton } from './TwitterButton';
+import useAppContext from '@/app/context/AppContext';
 
 const Login = () => {
+
+  const { setLoggedIn, setCurrentUser } = useAppContext();
+
   const router = useRouter();
   const form = useForm({
     initialValues: {
@@ -51,6 +55,8 @@ const Login = () => {
             .then((data) => {
               console.log(data);
               sessionStorage.setItem('user', JSON.stringify(data));
+              setLoggedIn(true);
+              setCurrentUser(data);
               router.push('/guides');
             })
         } else if (response.status === 401) {
