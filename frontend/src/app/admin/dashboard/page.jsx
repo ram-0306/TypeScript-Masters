@@ -467,7 +467,57 @@ const Admin = () => {
     fetchUsersData()
 
   }, [])
+
+  const [guideList, setGuideList] = useState([]);
+
+  const fetchguidesData = () => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/guides/getall`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        setGuideList(data)
+      })
+      .catch(err => console.log(err))
+  }
+
+  useEffect(() => {
+    fetchguidesData()
+
+  }, [])
   
+  const [questionList, setQuestionList] = useState([]);
+
+  const fetchQuestionData = () => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/ques-and-ans/getall`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        setQuestionList(data)
+      })
+      .catch(err => console.log(err))
+  }
+
+  useEffect(() => {
+    fetchQuestionData()
+
+  }, [])
+
+  const [answerList, setAnswerList] = useState([]);
+
+  const fetchAnswerData = () => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/ques-and-ans/getall`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        setAnswerList(data)
+      })
+      .catch(err => console.log(err))
+  }
+
+  useEffect(() => {
+    fetchAnswerData()
+
+  }, [])
 
   return (
     <Box mx={'sm'}>
@@ -486,10 +536,10 @@ const Admin = () => {
         <GridCol span={{ base: 12, md: 6, xl: 3 }} h={'15vh'}>
           <StatCard
             stat={{
-              label: 'guest user',
+              label: 'Total Guides',
               color: 'yellow',
               progress: 70,
-              stats: 7000
+              stats: guideList.length
             }}
             Icon={IconUser}
           />
@@ -497,10 +547,10 @@ const Admin = () => {
         <GridCol span={{ base: 12, md: 6, xl: 3 }} h={'15vh'}>
           <StatCard
             stat={{
-              label: 'reistered user',
+              label: 'Total Question Asked',
               color: 'pink',
               progress: 70,
-              stats: 500
+              stats: questionList.length
             }}
             Icon={IconUser}
           />
@@ -508,10 +558,10 @@ const Admin = () => {
         <GridCol span={{ base: 12, md: 6, xl: 3 }} h={'15vh'}>
           <StatCard
             stat={{
-              label: 'New Users',
+              label: 'Total Question Answered',
               color: 'cyan',
               progress: 70,
-              stats: 756
+              stats: answerList.length
             }}
             Icon={IconUser}
           />
