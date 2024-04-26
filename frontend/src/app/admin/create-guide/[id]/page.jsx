@@ -42,7 +42,7 @@ const DEFAULT_INITIAL_DATA = {
 
 const CATEGORIES = ['Basics',
   'TypeScript premitive types',
-  'How to install TypeScript?','Hello World in TypeScript', 'How to Execute TypeScript program using command line?','Variable in TypeSCript',
+  'TypeScript Object Types','TypeScript Other Types', 'TypeScript Combining Types','TypeScript Assertions','TypeScript Functions','TypeScript Interfaces and aliases','TypeScript Classes','TypeScript Modules','TypeScript Array','TypeScript String','TypeScript Exercises',
 ];
 
 const EditorComponent = () => {
@@ -163,6 +163,7 @@ const EditorComponent = () => {
     ejInstance.current.save()
       .then((result) => {
         console.log(result);
+        if(result.blocks.length) return;
         fetch('http://localhost:5000/guide/update/' + id, {
           method: 'PUT',
           body: JSON.stringify({

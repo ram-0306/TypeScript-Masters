@@ -66,6 +66,8 @@ const FeatureCard = () => {
           // radius={'lg'}
           className={classes.image}
         />
+    <TextInput type="file" />
+        
       </Card.Section>
       <form onSubmit={userForm.onSubmit(
         (values) => {
