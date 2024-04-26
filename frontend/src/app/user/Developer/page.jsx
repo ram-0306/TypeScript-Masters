@@ -14,6 +14,7 @@ const Developer = () => {
           <Title order={3} className={classes.title}>
             Ram Gopal Gautam
           </Title>
+          
         </div>
         <div className={classes.buttonContainer}>
           <Button variant="white" color="dark">
