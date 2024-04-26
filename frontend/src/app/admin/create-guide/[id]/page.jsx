@@ -19,23 +19,23 @@ const DEFAULT_INITIAL_DATA = {
     {
       "type": "header",
       "data": {
-        "text": "This is my awesome editor!",
+        "text": "Untitled Guide",
         "level": 1
       }
     },
-    {
-      id: "hZAjSnqYMX",
-      type: "image",
-      data: {
-        file: {
-          url: "Login-img.png",
-        },
-        withBorder: false,
-        withBackground: false,
-        stretched: true,
-        caption: "CodeX Code Camp 2019",
-      },
-    },
+    // {
+    //   id: "hZAjSnqYMX",
+    //   type: "image",
+    //   data: {
+    //     file: {
+    //       url: "Login-img.png",
+    //     },
+    //     withBorder: false,
+    //     withBackground: false,
+    //     stretched: true,
+    //     caption: "CodeX Code Camp 2019",
+    //   },
+    // },
   ]
 }
 
@@ -47,6 +47,7 @@ const CATEGORIES = ['Basics',
 
 const EditorComponent = () => {
   const ejInstance = useRef();
+  const dataFetched = useRef(null);
 
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState(CATEGORIES[0]);
@@ -74,11 +75,15 @@ const EditorComponent = () => {
   }
 
   useEffect(() => {
-    fetchGuideData();
+    if(dataFetched.current === null){
+      fetchGuideData();
+      dataFetched.current = true;
+    }
   }, [])
 
 
   const initEditor = () => {
+    console.log('initialize editor');
     const editor = new EditorJS({
       holder: 'editorjs',
       onReady: () => {
@@ -89,7 +94,7 @@ const EditorComponent = () => {
       onChange: async () => {
         let content = await editor.saver.save();
 
-        console.log(content);
+        // console.log(content);
       },
       data: guideData.content ?? initialContent,
       tools: {
@@ -163,7 +168,7 @@ const EditorComponent = () => {
     ejInstance.current.save()
       .then((result) => {
         console.log(result);
-        if(result.blocks.length) return;
+        if(!result.blocks.length) return;
         fetch('http://localhost:5000/guide/update/' + id, {
           method: 'PUT',
           body: JSON.stringify({
