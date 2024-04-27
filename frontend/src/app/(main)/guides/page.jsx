@@ -62,8 +62,11 @@ const Guides = ({ selGuide }) => {
     };
   }, [selGuide]);
 
+
   return (
     <div>
+
+
       {
         selGuide !== null ? (
           <>
@@ -74,8 +77,10 @@ const Guides = ({ selGuide }) => {
           <Title order={3} align="center" c="dimmed">Select a guide from the sidebar </Title>
         )
      }
-    </div>
-  )
+    
+  </div>
+  
+)
 }
   
 

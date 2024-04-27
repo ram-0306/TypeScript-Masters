@@ -9,6 +9,7 @@ router.post('/js-to-ts', (req, res) => {
 
     // Convert JavaScript code to TypeScript
     const convertedCode = convertJsToTs(code);
+    console.log(convertedCode);
 
     // Send the converted TypeScript code as the response
     res.send(convertedCode);

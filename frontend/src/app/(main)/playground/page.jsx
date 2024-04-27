@@ -14,9 +14,9 @@ const Playground = () => {
 
 
 
-    const executeConversion  = () => {
+    const executeConversion = () => {
         console.log(inputCode, inputLanguage, outputLanguage);
-        if(inputLanguage === 'TypeScript' && outputLanguage === 'JavaScript') {
+        if (inputLanguage === 'TypeScript' && outputLanguage === 'JavaScript') {
             fetch('http://localhost:5000/playground/ts-to-js', {
                 method: 'POST',
                 headers: {
@@ -30,7 +30,8 @@ const Playground = () => {
                     setOutputCode(data);
                 })
                 .catch(error => console.error(error));
-        } else if(inputLanguage === 'JavaScript' && outputLanguage === 'TypeScript') {
+
+        } else if (inputLanguage === 'JavaScript' && outputLanguage === 'TypeScript') {
             fetch('http://localhost:5000/playground/js-to-ts', {
                 method: 'POST',
                 headers: {
@@ -58,15 +59,15 @@ const Playground = () => {
 
                     <Grid.Col span={{ md: 6 }}>
 
-                        <NativeSelect value={inputLanguage} onChange={e => setInputLanguage(e.target.value)} radius="md" label="Language" description="Select language" data={['Javascript', 'TypeScript', 'Python']} mb={30} />
-                        <Editor  language={inputLanguage.toLowerCase()} theme='vs-dark' height={'50vh'} value={inputCode} onChange={setInputCode} />
+                        <NativeSelect value={inputLanguage} onChange={e => setInputLanguage(e.target.value)} radius="md" label="Language" description="Select language" data={['JavaScript', 'TypeScript', 'Python']} mb={30} />
+                        <Editor language={inputLanguage.toLowerCase()} theme='vs-dark' height={'50vh'} value={inputCode} onChange={setInputCode} />
 
                     </Grid.Col>
 
                     <Grid.Col span={{ md: 6 }}>
 
-                        <NativeSelect value={outputLanguage} onChange={e => setOutputLanguage(e.target.value)} radius="md" label="Language" description="Select language" data={['Javascript', 'Java', 'TypeScript']} mb={30} />
-                        <Editor  language={outputLanguage.toLowerCase()} theme='vs-dark' height={'50vh'} value={outputCode} onChange={setOutputCode} />
+                        <NativeSelect value={outputLanguage} onChange={e => setOutputLanguage(e.target.value)} radius="md" label="Language" description="Select language" data={['JavaScript', 'Java', 'TypeScript']} mb={30} />
+                        <Editor language={outputLanguage.toLowerCase()} theme='vs-dark' height={'50vh'} value={outputCode} onChange={setOutputCode} />
 
                     </Grid.Col>
 

@@ -1,32 +1,32 @@
 const fs = require('fs');
 const ts = require('typescript');
 
-// function convertJsToTs(jsCode) {
-//   // Add a newline at the end to ensure last line is parsed
-//   const jsCodeWithNewline = jsCode + "\n";
+ function convertJsToTs(jsCode) {
+   // Add a newline at the end to ensure last line is parsed
+  const jsCodeWithNewline = jsCode + "\n";
 
-//   const result = ts.transpileModule(jsCodeWithNewline, {
-//     compilerOptions: {
-//       allowJs: true, // Allow JavaScript code
-//       declaration: true, // Generate .d.ts file (optional)
-//       emitDeclarationOnly: true // Only emit .d.ts file (optional)
-//     }
-//   });
+   const result = ts.transpileModule(jsCodeWithNewline, {
+     compilerOptions: {
+       allowJs: true, // Allow JavaScript code
+       declaration: true, // Generate .d.ts file (optional)
+       emitDeclarationOnly: true // Only emit .d.ts file (optional)
+     }
+   });
 
-//   return result.outputText.trim(); // Trim any leading or trailing whitespace
-// }
+  return result.outputText.trim(); // Trim any leading or trailing whitespace
+ }
 
 
 
-function convertJsToTs(jsCode) {
-    const tsFilename = 'temp.ts'; // Temporary filename for conversion
-    fs.writeFileSync(tsFilename, jsCode); // Write JS code to temporary file
+//function convertJsToTs(jsCode) {
+   // const tsFilename = 'temp.ts'; // Temporary filename for conversion
+    //fs.writeFileSync(tsFilename, jsCode); // Write JS code to temporary file
 
-    const output = require('child_process').execSync(`tsc ${tsFilename}`); // Execute tsc
+    //const output = require('child_process').execSync(`tsc ${tsFilename}`); // Execute tsc
     // fs.unlinkSync(tsFilename); // Delete temporary file
 
-    return output.toString(); // Return converted TypeScript code
-}
+    //return output.toString(); // Return converted TypeScript code
+//}
 
 
 
