@@ -8,143 +8,73 @@ import PieChart from './PieChart';
 import LineChart from './LineChart';
 import { IconUser } from '@tabler/icons-react';
 
+const getRandomColor = () => {
+  const hue = Math.floor(Math.random() * 360)
+  return `hsl(${hue}, 70%, 50%)`
+}
+
 const data = [
   {
     "country": "AD",
     "hot dog": 31,
-    "hot dogColor": "hsl(248, 70%, 50%)",
-    "burger": 187,
-    "burgerColor": "hsl(319, 70%, 50%)",
-    "sandwich": 82,
-    "sandwichColor": "hsl(3, 70%, 50%)",
-    "kebab": 105,
-    "kebabColor": "hsl(81, 70%, 50%)",
-    "fries": 31,
-    "friesColor": "hsl(44, 70%, 50%)",
-    "donut": 99,
-    "donutColor": "hsl(57, 70%, 50%)"
+    "hot dogColor": getRandomColor(),
   },
   {
     "country": "AE",
     "hot dog": 94,
-    "hot dogColor": "hsl(84, 70%, 50%)",
-    "burger": 143,
-    "burgerColor": "hsl(8, 70%, 50%)",
-    "sandwich": 41,
-    "sandwichColor": "hsl(97, 70%, 50%)",
-    "kebab": 79,
-    "kebabColor": "hsl(179, 70%, 50%)",
-    "fries": 5,
-    "friesColor": "hsl(179, 70%, 50%)",
-    "donut": 84,
-    "donutColor": "hsl(328, 70%, 50%)"
+    "hot dogColor": getRandomColor(),
   },
   {
     "country": "AF",
     "hot dog": 13,
-    "hot dogColor": "hsl(256, 70%, 50%)",
-    "burger": 111,
-    "burgerColor": "hsl(37, 70%, 50%)",
-    "sandwich": 137,
-    "sandwichColor": "hsl(261, 70%, 50%)",
-    "kebab": 65,
-    "kebabColor": "hsl(291, 70%, 50%)",
-    "fries": 35,
-    "friesColor": "hsl(79, 70%, 50%)",
-    "donut": 199,
-    "donutColor": "hsl(59, 70%, 50%)"
+    "hot dogColor": getRandomColor(),
   },
   {
     "country": "AG",
     "hot dog": 148,
-    "hot dogColor": "hsl(354, 70%, 50%)",
-    "burger": 195,
-    "burgerColor": "hsl(297, 70%, 50%)",
-    "sandwich": 86,
-    "sandwichColor": "hsl(160, 70%, 50%)",
-    "kebab": 63,
-    "kebabColor": "hsl(225, 70%, 50%)",
-    "fries": 195,
-    "friesColor": "hsl(216, 70%, 50%)",
-    "donut": 19,
-    "donutColor": "hsl(312, 70%, 50%)"
+    "hot dogColor": getRandomColor(),
   },
   {
     "country": "AI",
     "hot dog": 58,
-    "hot dogColor": "hsl(259, 70%, 50%)",
-    "burger": 105,
-    "burgerColor": "hsl(178, 70%, 50%)",
-    "sandwich": 84,
-    "sandwichColor": "hsl(117, 70%, 50%)",
-    "kebab": 198,
-    "kebabColor": "hsl(223, 70%, 50%)",
-    "fries": 82,
-    "friesColor": "hsl(266, 70%, 50%)",
-    "donut": 27,
-    "donutColor": "hsl(180, 70%, 50%)"
+    "hot dogColor": getRandomColor(),
   },
   {
     "country": "AL",
     "hot dog": 153,
-    "hot dogColor": "hsl(158, 70%, 50%)",
-    "burger": 63,
-    "burgerColor": "hsl(290, 70%, 50%)",
-    "sandwich": 185,
-    "sandwichColor": "hsl(145, 70%, 50%)",
-    "kebab": 108,
-    "kebabColor": "hsl(50, 70%, 50%)",
-    "fries": 146,
-    "friesColor": "hsl(358, 70%, 50%)",
-    "donut": 116,
-    "donutColor": "hsl(240, 70%, 50%)"
+    "hot dogColor": getRandomColor(),
   },
   {
     "country": "AM",
     "hot dog": 6,
-    "hot dogColor": "hsl(142, 70%, 50%)",
-    "burger": 142,
-    "burgerColor": "hsl(138, 70%, 50%)",
-    "sandwich": 89,
-    "sandwichColor": "hsl(305, 70%, 50%)",
-    "kebab": 106,
-    "kebabColor": "hsl(87, 70%, 50%)",
-    "fries": 196,
-    "friesColor": "hsl(157, 70%, 50%)",
-    "donut": 123,
-    "donutColor": "hsl(284, 70%, 50%)"
+    "hot dogColor": getRandomColor(),
   }
 ]
 const data2 = [
   {
     "id": "go",
     "label": "go",
-    "value": 392,
-    "color": "hsl(229, 70%, 50%)"
+    "value": 392
   },
   {
     "id": "sass",
     "label": "sass",
-    "value": 564,
-    "color": "hsl(300, 70%, 50%)"
+    "value": 564
   },
   {
     "id": "hack",
     "label": "hack",
-    "value": 420,
-    "color": "hsl(30, 70%, 50%)"
+    "value": 420
   },
   {
     "id": "ruby",
     "label": "ruby",
-    "value": 468,
-    "color": "hsl(294, 70%, 50%)"
+    "value": 468
   },
   {
     "id": "css",
     "label": "css",
-    "value": 70,
-    "color": "hsl(98, 70%, 50%)"
+    "value": 70
   }
 ]
 const data3 = [
@@ -421,7 +351,6 @@ const data3 = [
 ]
 
 
-
 const StatCard = ({ stat, Icon }) => {
   return <Paper withBorder radius="md" p="xs" key={stat.label}>
     <Group>
@@ -452,6 +381,52 @@ const StatCard = ({ stat, Icon }) => {
 const Admin = () => {
 
   const [userList, setUserList] = useState([]);
+  const [guideList, setGuideList] = useState([]);
+  const [questionList, setQuestionList] = useState([]);
+  const [answerList, setAnswerList] = useState([]);
+  const [pieData, setPieData] = useState([]);
+  const [barData, setBarData] = useState([]);
+  const [barKeys, setBarKeys] = useState([]);
+
+  const formatPieData = (data, key) => {
+    const uniqueValues = getUniqueValues(data, key)
+    const formattedData = uniqueValues.map(value => {
+      const count = data.filter(item => item[key] === value).length
+      return { id: value, label: value, value: count }
+    })
+    return formattedData
+  }
+
+  const getUniqueValues = (data, key) => {
+    const uniqueValues = data.map(item => item[key])
+    return [...new Set(uniqueValues)]
+  }
+
+  function formatDataForBarChart(users) {
+    // Create an empty object to store the counts
+    console.log(new Date(users[0].createdAt));
+    const counts = {};
+    const DateKeys = users.map(user => new Date(user.createdAt).toISOString().split('T')[0]);
+  
+    // Iterate over the array of users
+    for (let user of users) {
+      // Convert the registration date to a string in the format 'yyyy-mm-dd'
+      const date = new Date(user.createdAt).toISOString().split('T')[0];
+  
+      // If this date is not already a property in the counts object, add it with a value of 1
+      // If it is already a property, increment its value
+      counts[date] = (counts[date] || 0) + 1;
+    }
+  
+    // Convert the counts object to an array of objects in the format needed for the bar chart
+    const data = Object.entries(counts).map(([date, value]) => ({
+      id: date,
+      label: date,
+      value: value,
+    }));
+  
+    return [data, DateKeys];
+  }
 
   const fetchUsersData = () => {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/getall`)
@@ -459,36 +434,28 @@ const Admin = () => {
       .then(data => {
         console.log(data)
         setUserList(data)
+        const [formattedData, datekeys] = formatDataForBarChart(data);
+        console.log(datekeys);
+        setBarData(formatDataForBarChart(formattedData));
+        setBarKeys(datekeys);
+        // console.log(formattedData);
       })
       .catch(err => console.log(err))
   }
 
-  useEffect(() => {
-    fetchUsersData()
-
-  }, [])
-
-  const [guideList, setGuideList] = useState([]);
-
   const fetchguidesData = () => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/guides/getall`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/guide/getall`)
       .then(res => res.json())
       .then(data => {
         console.log(data)
         setGuideList(data)
+        setPieData(formatPieData(data, 'category'));
       })
       .catch(err => console.log(err))
   }
 
-  useEffect(() => {
-    fetchguidesData()
-
-  }, [])
-  
-  const [questionList, setQuestionList] = useState([]);
-
   const fetchQuestionData = () => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/ques-and-ans/getall`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/question/getall`)
       .then(res => res.json())
       .then(data => {
         console.log(data)
@@ -497,15 +464,8 @@ const Admin = () => {
       .catch(err => console.log(err))
   }
 
-  useEffect(() => {
-    fetchQuestionData()
-
-  }, [])
-
-  const [answerList, setAnswerList] = useState([]);
-
   const fetchAnswerData = () => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/ques-and-ans/getall`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/answer/getall`)
       .then(res => res.json())
       .then(data => {
         console.log(data)
@@ -515,9 +475,12 @@ const Admin = () => {
   }
 
   useEffect(() => {
+    fetchUsersData()
+    fetchguidesData()
+    fetchQuestionData()
     fetchAnswerData()
-
   }, [])
+
 
   return (
     <Box mx={'sm'}>
@@ -569,10 +532,10 @@ const Admin = () => {
       </Grid>
       <Grid>
         <GridCol span={{ base: 12, md: 6 }} h={'40vh'}>
-          <BarChart data={data} />
+          <BarChart data={barData} keys={barKeys} />
         </GridCol>
         <GridCol span={{ base: 12, md: 6 }} h={'40vh'}>
-          <PieChart data={data2} />
+          <PieChart data={pieData} />
         </GridCol>
         <GridCol span={{ base: 12, md: 12 }} h={'40vh'}>
           <LineChart data={data3} />

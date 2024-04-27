@@ -17,26 +17,26 @@ const commentRouter = require('./routers/commentRouter');
 //middleware
 
 app.use(cors({
-    origin:['http://localhost:3000']
+    origin: ['http://localhost:3000']
 }));
 
 app.use(express.json());
 
-app.use ('/user',userRouter);
-app.use ('/guide',guideRouter);
-app.use ('/feedback',feedbackRouter);
-app.use ('/question',questionRouter);
-app.use ('/playground',playRouter);
-app.use ('/util',utilRouter);
-app.use ('/answer',answerRouter);
-app.use ('/comment',commentRouter);
+app.use('/user', userRouter);
+app.use('/guide', guideRouter);
+app.use('/feedback', feedbackRouter);
+app.use('/question', questionRouter);
+app.use('/playground', playRouter);
+app.use('/util', utilRouter);
+app.use('/answer', answerRouter);
+app.use('/comment', commentRouter);
 
 app.use(express.static('./static/uploads'));
 
-app.get('/',(req, res)=>{
-res.send('response from express')
+app.get('/', (req, res) => {
+    res.send('response from express')
 });
 
-app.listen(port,()=>{
+app.listen(port, () => {
     console.log("express on server");
 });

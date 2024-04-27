@@ -6,7 +6,7 @@ const myschema = new Schema({
     password: {type : String},
     avatar: { type: String, default: 'avtarPlaceholder.png' },
     role: { type: String, default: 'user' },
-    createdAt: { Date },
+    createdAt: { type : Date, default: Date.now},
 });
 
 module.exports = model("user", myschema);
