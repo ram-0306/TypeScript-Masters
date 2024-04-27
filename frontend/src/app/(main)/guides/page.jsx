@@ -71,7 +71,7 @@ const Guides = ({ selGuide }) => {
             <div id='editorjs'></div>
           </>
         ) : (
-          <Title order={3} align="center" c="dimmed">Select a guide from the sidebar</Title>
+          <Title order={3} align="center" c="dimmed">Select a guide from the sidebar </Title>
         )
      }
     </div>

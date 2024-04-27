@@ -1,5 +1,5 @@
 const express = require('express');
-const { convertJstoTs, convertTsToJs } = require('./utilities');
+const { convertJsToTs, convertTsToJs } = require('./utilities');
 
 const router = express.Router();
 
@@ -8,7 +8,7 @@ router.post('/js-to-ts', (req, res) => {
     const { code } = req.body;
 
     // Convert JavaScript code to TypeScript
-    const convertedCode = convertJstoTs(code);
+    const convertedCode = convertJsToTs(code);
 
     // Send the converted TypeScript code as the response
     res.send(convertedCode);

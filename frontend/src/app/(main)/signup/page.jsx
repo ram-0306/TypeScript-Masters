@@ -71,7 +71,7 @@ const Signup = () => {
           wrap="wrap"
     >
     <div>
-      <Paper radius="md" p="xl">
+      <Paper radius="md" p="xl" withBorder>
         <Text size="lg" Text="center" fw={500}>
           Welcome to Typescript Masters, Register Yourself
         </Text>

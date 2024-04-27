@@ -13,19 +13,25 @@ const Playground = () => {
     const [outputLanguage, setOutputLanguage] = useState('JavaScript');
 
 
-    function displayConvertedCode(tsCode) {
-        alert(tsCode);
-    }
-
-
-    function displayConvertedCode(tsCode) {
-        document.getElementById('ts-code-display').textContent = tsCode;
-    }
 
     const executeConversion  = () => {
         console.log(inputCode, inputLanguage, outputLanguage);
         if(inputLanguage === 'TypeScript' && outputLanguage === 'JavaScript') {
             fetch('http://localhost:5000/playground/ts-to-js', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ code: inputCode })
+            })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                    setOutputCode(data);
+                })
+                .catch(error => console.error(error));
+        } else if(inputLanguage === 'JavaScript' && outputLanguage === 'TypeScript') {
+            fetch('http://localhost:5000/playground/js-to-ts', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
