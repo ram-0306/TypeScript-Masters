@@ -77,6 +77,7 @@ const data2 = [
     "value": 70
   }
 ]
+
 const data3 = [
   {
     "id": "japan",
