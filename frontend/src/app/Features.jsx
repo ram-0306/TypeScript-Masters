@@ -1,6 +1,7 @@
 import { Title, SimpleGrid, Text, Button, ThemeIcon, Grid, rem, Container } from '@mantine/core';
 import { IconReceiptOff, IconFlame, IconCircleDotted, IconFileCode } from '@tabler/icons-react';
 import classes from './features.module.css';
+import Link from 'next/link';
 
 const features = [
   {
@@ -63,7 +64,7 @@ export default function Features() {
             more than 120 customizable components and hooks to cover you in any situation
           </Text>
 
-          <Button
+          <Button component={Link} href="/about"
             variant="gradient"
             gradient={{ deg: 133, from: 'blue', to: 'cyan' }}
             size="lg"
