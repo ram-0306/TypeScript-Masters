@@ -10,8 +10,6 @@ const Developer = () => {
           <Text className={classes.category} size="xs">
             nature
           </Text>
-          
-          
           <Title order={3} className={classes.title}>
             Ram Gopal Gautam
           </Title>
