@@ -28,9 +28,9 @@ const mockdata = [
     icon: IconUser,
   },
   {
-    title: 'Fostering Community Engagement',
+    title: 'Q/A Support',
     description:
-      'Facilitating collaboration, knowledge sharing, and skill development among TypeScript enthusiasts',
+      'Unlock the power of knowledge with our Q/A support feature - where every question finds its answer, and every developer finds their solution!',
     icon: IconCookie,
   },
 ];
