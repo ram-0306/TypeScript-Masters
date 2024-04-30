@@ -1,8 +1,10 @@
+'use client'
 import { Menu, Group, Center, Burger, Container } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconChevronDown } from '@tabler/icons-react';
 import { MantineLogo } from '@mantinex/mantine-logo';
 import classes from './HeaderMenu.module.css';
+
 
 const links = [
   { link: '/about', label: 'Features' },
@@ -10,10 +12,9 @@ const links = [
     link: '#1',
     label: 'Learn',
     links: [
-      { link: '/docs', label: 'Documentation' },
-      { link: '/resources', label: 'Resources' },
-      { link: '/community', label: 'Community' },
-      { link: '/blog', label: 'Blog' },
+      { link: '/Guides', label: 'Guides' },
+      { link: '/playground', label: 'Conversion' },
+      { link: '/QuesAndAns', label: 'Ask Questions' },
     ],
   },
   { link: '/about', label: 'About' },
