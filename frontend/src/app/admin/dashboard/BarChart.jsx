@@ -1,12 +1,12 @@
 import { ResponsiveBar } from '@nivo/bar'
 import React from 'react'
 
-const BarChart = ({ data, keys }) => {
+const BarChart = ({ data, keys, index }) => {
     return (
         <ResponsiveBar
             data={data}
             keys={keys}
-            indexBy="country"
+            indexBy={index}
             margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
             padding={0.3}
             valueScale={{ type: 'linear' }}

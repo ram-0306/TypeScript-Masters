@@ -1,10 +1,10 @@
 'use client';
 import { Container, Grid, SimpleGrid, rem } from '@mantine/core';
 import { Box, Center, GridCol, Group, Paper, RingProgress, Text, } from '@mantine/core';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import FeatureCard from './FeatureCard';
 import StatsCard from './StatsCard';
-import { IconUser } from '@tabler/icons-react';
+import { IconChecklist, IconQuestionMark, IconUser } from '@tabler/icons-react';
 import HeaderMenu from './HeaderMenu';
 import useAppContext from '@/app/context/AppContext';
 import HomeHeader from '@/app/HomeHeader';
@@ -39,14 +39,52 @@ const StatCard = ({ stat, Icon }) => {
 const userProfile = () => {
     const SECONDARY_COL_HEIGHT = `calc(${PRIMARY_COL_HEIGHT} / 2 - var(--mantine-spacing-md) / 2)`;
 
+    const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
+
+    const [questions, setQuestions] = useState([]);
+    const [answers, setAnswers] = useState([]);
+
+    const fetchUserQuestions = () => {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/question/getbyuser/${currentUser._id}`)
+            .then((response) => {
+                if (response.status === 200) {
+                    response.json()
+                        .then((result) => {
+                            console.log(result);
+                            setQuestions(result);
+                        })
+                }
+            }).catch((err) => {
+                console.log(err);
+            });
+    }
+
+    const fetchUserAnswers = () => {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/answer/getbyuser/${currentUser._id}`)
+            .then((response) => {
+                if (response.status === 200) {
+                    response.json()
+                        .then((result) => {
+                            console.log(result);
+                            setAnswers(result);
+                        })
+                }
+            }).catch((err) => {
+                console.log(err);
+            });
+    }
+
+    useEffect(() => {
+        fetchUserQuestions();
+        fetchUserAnswers();
+    }, [])
 
 
     return (
-    
-        <div mt={30}>
 
+        <div mt={30}>
             <Container my="md" mt={50}>
-            <HeaderMenu/>
+                <HeaderMenu />
                 <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md">
                     <FeatureCard />
                     <Grid gutter="md">
@@ -61,10 +99,10 @@ const userProfile = () => {
                                             stat={{
                                                 label: 'Asked',
                                                 color: 'cyan',
-                                                progress: 70,
-                                                stats: 10
+                                                progress: 56,
+                                                stats: questions.length
                                             }}
-                                            Icon={IconUser}
+                                            Icon={IconQuestionMark}
                                         />
                                     </GridCol>
                                 </Grid>
@@ -78,10 +116,10 @@ const userProfile = () => {
                                             stat={{
                                                 label: 'Answered',
                                                 color: 'cyan',
-                                                progress: 70,
-                                                stats: 750
+                                                progress: 29,
+                                                stats: answers.length
                                             }}
-                                            Icon={IconUser}
+                                            Icon={IconChecklist}
                                         />
                                     </GridCol>
                                 </Grid>
