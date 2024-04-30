@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Card, Image, Text, Box, Stack, rem, Group, Badge, Center, Button, TextInput, Select, Icon } from '@mantine/core';
-import { IconSun, IconPhone, IconMapPin, IconAt, IconUser } from '@tabler/icons-react';
+import { Card, Image, Text, Box, Stack, rem, Group, Badge, Center, Button, TextInput, Select, Icon, FileInput, ActionIcon } from '@mantine/core';
+import { IconSun, IconPhone, IconMapPin, IconAt, IconUser, IconUpload } from '@tabler/icons-react';
 import classes from './FeaturesCard.module.css';
 import { Formik } from 'formik';
 import { useForm } from '@mantine/form';
@@ -55,6 +55,28 @@ const FeatureCard = () => {
       });
   }
 
+  const uploadImage = (file) => {
+    const formData = new FormData();
+    formData.append('myfile', file);
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/util/uploadfile`, {
+      method: 'POST',
+      body: formData,
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          updateProfile(
+            {
+              avatar: file.name,
+            }
+          )
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        enqueueSnackbar('Error uploaded image', { variant: 'error' });
+      });
+  }
+
   // const uploadAvatar = (file) => {}
 
   return (
@@ -66,8 +88,15 @@ const FeatureCard = () => {
           // radius={'lg'}
           className={classes.image}
         />
-    <TextInput type="file" />
-        
+        <Button htmlFor="avatar-upload" component={'label'} m={20}>
+          <IconUpload />
+          Upload Avatar
+        </Button>
+        <input hidden id='avatar-upload'
+          placeholder="Upload Avatar Image"
+          onChange={uploadImage}
+        />
+
       </Card.Section>
       <form onSubmit={userForm.onSubmit(
         (values) => {
@@ -103,7 +132,9 @@ const FeatureCard = () => {
               <Text fz="xs" c="dimmed">{currentUser.email}</Text>
             )}
           </div>
-          <Badge variant="outline">{currentUser.role}</Badge>
+          <Button onClick={logout} variant='outline' color='red' radius='xl'>
+            Logout
+          </Button>
         </Group>
         <Card.Section className={classes.section} mt="md">
           <Text fz="sm" c="dimmed" className={classes.label}>
@@ -160,7 +191,7 @@ const FeatureCard = () => {
             onClick={handleEdit}
             radius="xl"
             mt={'auto'}
-            // style={{ flex: 1 }}
+          // style={{ flex: 1 }}
           >
             Edit Profile
           </Button>

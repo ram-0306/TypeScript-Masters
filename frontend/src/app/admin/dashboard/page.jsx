@@ -1,7 +1,6 @@
 'use client';
 import { Box, Center, Grid, GridCol, Group, Paper, RingProgress, Text, rem } from '@mantine/core';
 
-
 import React, { useEffect, useState } from 'react'
 import BarChart from './BarChart';
 import PieChart from './PieChart';
@@ -77,6 +76,7 @@ const data2 = [
     "value": 70
   }
 ]
+
 const data3 = [
   {
     "id": "japan",
@@ -404,7 +404,7 @@ const Admin = () => {
 
   function formatDataForBarChart(users) {
     // Create an empty object to store the counts
-    console.log(new Date(users[0].createdAt));
+    console.log(users[0]);
     const counts = {};
     const DateKeys = users.map(user => new Date(user.createdAt).toISOString().split('T')[0]);
   
@@ -419,11 +419,12 @@ const Admin = () => {
     }
   
     // Convert the counts object to an array of objects in the format needed for the bar chart
-    const data = Object.entries(counts).map(([date, value]) => ({
-      id: date,
-      label: date,
-      value: value,
-    }));
+    const data = Object.entries(counts).map(([date, value]) => {
+      let obj = {};
+      obj.date = date;
+      obj[date] = value;
+      return obj;
+    });
   
     return [data, DateKeys];
   }
@@ -436,7 +437,8 @@ const Admin = () => {
         setUserList(data)
         const [formattedData, datekeys] = formatDataForBarChart(data);
         console.log(datekeys);
-        setBarData(formatDataForBarChart(formattedData));
+        console.log(formattedData);
+        setBarData(formattedData);
         setBarKeys(datekeys);
         // console.log(formattedData);
       })

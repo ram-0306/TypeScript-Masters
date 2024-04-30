@@ -134,7 +134,7 @@ const HomeHeader = () => {
                         Start your TypeScript journey here...
                       </Text>
                     </div>
-                    <Button variant="default">Get started</Button>
+                    <Button component={Link} href="/login" variant="default">Get started</Button>
                   </Group>
                 </div>
               </HoverCard.Dropdown>

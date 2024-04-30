@@ -21,7 +21,7 @@ const Sidebar = ({ guidesData, selGuide, setSelGuide }) => {
 
       </div>
 
-      <ScrollArea className={classes.links}>
+      <ScrollArea classNames={'sdkjh'} className={classes.links}>
         <div className={classes.linksInner}>{links}</div>
       </ScrollArea>
 

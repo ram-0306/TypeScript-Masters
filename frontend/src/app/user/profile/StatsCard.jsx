@@ -30,7 +30,7 @@ const StatsCard=()=> {
       <Progress value={62} mt={5} />
 
       <Group justify="space-between" mt="md">
-        <Text fz="sm">20 / 36 topics</Text>
+        <Text fz="sm">20 / 80 guides</Text>
         <Badge size="sm">2 hours left</Badge>
       </Group>
     </Paper>

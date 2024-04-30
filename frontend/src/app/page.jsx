@@ -6,6 +6,7 @@ import Features from './Features';
 import Faq from './user/faq/page';
 import React from 'react'; // Don't forget to import React
 import HomeHeader from './HomeHeader';
+import Link from 'next/link';
 
 
 
@@ -32,7 +33,7 @@ const  Home = () => {
             Your ultimate destination for mastering TypeScript and accelerating your development journey.
           </Text>
 
-          <Button variant="gradient" size="xl" radius="xl" className={classes.control}>
+          <Button component={Link} href ="/login"  variant="gradient" size="xl" radius="xl" className={classes.control}>
             Get started
           </Button>
         </Container>

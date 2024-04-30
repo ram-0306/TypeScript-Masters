@@ -46,7 +46,6 @@ const Guides = ({ selGuide }) => {
         quote: Quote,
         table: Table,
         code: CodeTool
-
       },
     });
   };
