@@ -20,7 +20,7 @@ import {
   Title,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import useAppContext from '@/app/context/AppContext';
+
 import {
   IconNotification,
   IconCode,
@@ -150,7 +150,6 @@ const HomeHeader = () => {
 
           <Group visibleFrom="sm">
 
-            <Link href={"/login"}><Button variant="default">Log in</Button></Link>
             <Link href={"/signup"} ><Button>Sign up</Button></Link>
          
            
@@ -197,9 +196,7 @@ const HomeHeader = () => {
           <Divider my="sm" />
 
           <Group justify="center" grow px="md">
-             <Button onClick={logout} variant='outline' color='red' radius='xl'>
-            Logout
-          </Button>
+            
             <Button>Sign up</Button>
           </Group>
         </ScrollArea>
