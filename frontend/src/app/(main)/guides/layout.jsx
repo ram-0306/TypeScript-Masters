@@ -67,6 +67,8 @@ const mockdata = [
     icon: IconFingerprint,
     title: 'Q/A Support',
     description: 'Interactive Q&A support to address user queries, troubleshoot issues, and foster community engagement for enhanced learning and collaboration..',
+    url:'/ques-and-ans'
+  
   },
 
 ];
@@ -210,11 +212,11 @@ export default function Layout({ children }) {
                       </div>
                     </HoverCard.Dropdown>
                   </HoverCard>
-                  <a href="#" className={classess.link}>
-                    Learn
+                  <a href="/playground" className={classess.link}>
+                    Playground
                   </a>
-                  <a href="#" className={classess.link}>
-                    Academy
+                  <a href="/profile" className={classess.link}>
+                    Your Profile
                   </a>
                 </Group>
 
