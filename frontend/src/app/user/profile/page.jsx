@@ -5,9 +5,7 @@ import React, { useEffect, useState } from 'react';
 import FeatureCard from './FeatureCard';
 import StatsCard from './StatsCard';
 import { IconChecklist, IconQuestionMark, IconUser } from '@tabler/icons-react';
-import HeaderMenu from './HeaderMenu';
-import useAppContext from '@/app/context/AppContext';
-import HomeHeader from '@/app/HomeHeader';
+import HomeHeader from './HeaderMenu';
 const PRIMARY_COL_HEIGHT = rem(300);
 const StatCard = ({ stat, Icon }) => {
     return <Paper withBorder radius="md" p="xs" key={stat.label}>
@@ -84,7 +82,7 @@ const userProfile = () => {
 
         <div mt={30}>
             <Container my="md" mt={50}>
-                <HeaderMenu />
+                <HomeHeader />
                 <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md">
                     <FeatureCard />
                     <Grid gutter="md">
