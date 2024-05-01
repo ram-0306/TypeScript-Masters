@@ -1,87 +1,211 @@
 'use client'
-import { Menu, Group, Center, Burger, Container } from '@mantine/core';
+import {
+  HoverCard,
+  Group,
+  Button,
+  UnstyledButton,
+  Text,
+  SimpleGrid,
+  ThemeIcon,
+  Anchor,
+  Divider,
+  Center,
+  Box,
+  Burger,
+  Drawer,
+  Collapse,
+  ScrollArea,
+  rem,
+  useMantineTheme,
+  Title,
+} from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconChevronDown } from '@tabler/icons-react';
-import { MantineLogo } from '@mantinex/mantine-logo';
+import useAppContext from '@/app/context/AppContext';
+import {
+  IconNotification,
+  IconCode,
+  IconBook,
+  IconChartPie3,
+  IconFingerprint,
+  IconCoin,
+  IconChevronDown,
+} from '@tabler/icons-react';
 import classes from './HeaderMenu.module.css';
+import Link from 'next/link';
 
 
-const links = [
-  { link: '/about', label: 'Features' },
+const mockdata = [
   {
-    link: '#1',
-    label: 'Learn',
-    links: [
-      { link: '/Guides', label: 'Guides' },
-      { link: '/playground', label: 'Conversion' },
-      { link: '/QuesAndAns', label: 'Ask Questions' },
-    ],
+    icon: IconCode,
+    title: 'Seamless Transition',
+    description: 'Effortlessly convert your existing JavaScript projects into TypeScript with our user-friendly conversion tools',
+    url: '/playground',
   },
-  { link: '/about', label: 'About' },
-  { link: '/pricing', label: 'Pricing' },
   {
-    link: '#2',
-    label: 'Support',
-    links: [
-      { link: '/faq', label: 'FAQ' },
-      { link: '/demo', label: 'Book a demo' },
-      { link: '/forums', label: 'Forums' },
-    ],
+    icon: IconCoin,
+    title: 'Free for everyone',
+    description: 'Accessible to everyone at no cost, ensuring inclusivity and equal opportunity for learning TypeScript.',
+    url: '/features',
   },
+  {
+    icon: IconBook,
+    title: 'Documentation',
+    description: 'Comprehensive documentation covering TypeScript concepts, features, and best practices for effective learning and reference.',
+    url: '/guides',
+  },
+  {
+    icon: IconFingerprint,
+    title: 'Q/A Support',
+    description: 'Interactive Q&A support to address user queries, troubleshoot issues, and foster community engagement for enhanced learning and collaboration..',
+  },
+
 ];
 
-const HeaderMenu=()=> {
-  const [opened, { toggle }] = useDisclosure(false);
+const HomeHeader = () => {
+  const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
+  const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
+  const theme = useMantineTheme();
 
-  const items = links.map((link) => {
-    const menuItems = link.links?.map((item) => (
-      <Menu.Item key={item.link}>{item.label}</Menu.Item>
-    ));
-
-    if (menuItems) {
-      return (
-        <Menu key={link.label} trigger="hover" transitionProps={{ exitDuration: 0 }} withinPortal>
-          <Menu.Target>
-            <a
-              href={link.link}
-              className={classes.link}
-              onClick={(event) => event.preventDefault()}
-            >
-              <Center>
-                <span className={classes.linkLabel}>{link.label}</span>
-                <IconChevronDown size="0.9rem" stroke={1.5} />
-              </Center>
-            </a>
-          </Menu.Target>
-          <Menu.Dropdown>{menuItems}</Menu.Dropdown>
-        </Menu>
-      );
-    }
-
-    return (
-      <a
-        key={link.label}
-        href={link.link}
-        className={classes.link}
-        onClick={(event) => event.preventDefault()}
-      >
-        {link.label}
-      </a>
-    );
-  });
+  const links = mockdata.map((item) => (
+    <a href={item.url} className={classes.link} key={item.title}>
+    <UnstyledButton className={classes.subLink}>
+      <Group wrap="nowrap" align="flex-start">
+        <ThemeIcon size={34} variant="default" radius="md">
+          <item.icon style={{ width: rem(22), height: rem(22) }} color={theme.colors.blue[6]} />
+        </ThemeIcon>
+        <div>
+          <Text size="sm" fw={500}>
+            {item.title}
+          </Text>
+          <Text size="xs" c="dimmed">
+            {item.description}
+          </Text>
+        </div>
+      </Group>
+    </UnstyledButton>
+    </a>
+  ));
 
   return (
-    <header className={classes.header}>
-      <Container size="md">
-        <div className={classes.inner}>
-          <MantineLogo size={28} />
-          <Group gap={5} visibleFrom="sm">
-            {items}
+    <Box>
+      <header className={classes.header}>
+        <Group justify="space-between" h="100%">
+          <Title order={3}>TypeScript Masters</Title>
+
+          <Group h="100%" gap={0} visibleFrom="sm">
+            <a href="#" className={classes.link}>
+              Home
+            </a>
+            <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
+              <HoverCard.Target>
+                <a href="#" className={classes.link}>
+                  <Center inline>
+                    <Box component="span" mr={5}>
+                      Features
+                    </Box>
+                    <IconChevronDown
+                      style={{ width: rem(16), height: rem(16) }}
+                      color={theme.colors.blue[6]}
+                    />
+                  </Center>
+                </a>
+              </HoverCard.Target>
+
+              <HoverCard.Dropdown style={{ overflow: 'hidden' }}>
+                <Group justify="space-between" px="md">
+                  <Text fw={500}>Features</Text>
+                  <Anchor href="#" fz="xs">
+                    View all
+                  </Anchor>
+                </Group>
+
+                <Divider my="sm" />
+
+                <SimpleGrid cols={2} spacing={0}>
+                  {links}
+                </SimpleGrid>
+
+                <div className={classes.dropdownFooter}>
+                  <Group justify="space-between">
+                    <div>
+                      <Text fw={500} fz="sm">
+                        Get started
+                      </Text>
+                      <Text size="xs" c="dimmed">
+                        Start your TypeScript journey here...
+                      </Text>
+                    </div>
+                    <Button component={Link} href="/login" variant="default">Get started</Button>
+                  </Group>
+                </div>
+              </HoverCard.Dropdown>
+            </HoverCard>
+            <a href="#" className={classes.link}>
+              Learn
+            </a>
+            <a href="#" className={classes.link}>
+              Academy
+            </a>
           </Group>
-          <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="sm" />
-        </div>
-      </Container>
-    </header>
+
+          <Group visibleFrom="sm">
+
+            <Link href={"/login"}><Button variant="default">Log in</Button></Link>
+            <Link href={"/signup"} ><Button>Sign up</Button></Link>
+         
+           
+          </Group>
+
+          <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
+        </Group>
+      </header>
+
+      <Drawer
+        opened={drawerOpened}
+        onClose={closeDrawer}
+        size="100%"
+        padding="md"
+        title="Navigation"
+        hiddenFrom="sm"
+        zIndex={1000000}
+      >
+        <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">
+          <Divider my="sm" />
+
+          <a href="#" className={classes.link}>
+            Home
+          </a>
+          <UnstyledButton className={classes.link} onClick={toggleLinks}>
+            <Center inline>
+              <Box component="span" mr={5}>
+                Features
+              </Box>
+              <IconChevronDown
+                style={{ width: rem(16), height: rem(16) }}
+                color={theme.colors.blue[6]}
+              />
+            </Center>
+          </UnstyledButton>
+          <Collapse in={linksOpened}>{links}</Collapse>
+          <a href="#" className={classes.link}>
+            Learn
+          </a>
+          <a href="#" className={classes.link}>
+            Academy
+          </a>
+
+          <Divider my="sm" />
+
+          <Group justify="center" grow px="md">
+             <Button onClick={logout} variant='outline' color='red' radius='xl'>
+            Logout
+          </Button>
+            <Button>Sign up</Button>
+          </Group>
+        </ScrollArea>
+      </Drawer>
+    </Box>
   );
 }
-export default HeaderMenu;
+
+export default HomeHeader;
