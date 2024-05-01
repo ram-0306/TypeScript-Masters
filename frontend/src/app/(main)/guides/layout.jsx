@@ -20,7 +20,7 @@ import {
   Divider,
   Center,
   Box,
-  
+  Image,
   Drawer,
   Collapse,
   ScrollArea,
@@ -221,7 +221,7 @@ export default function Layout({ children }) {
                 <Group visibleFrom="sm">
 
                   {/* <Link href={"/login"}><Button variant="default">Log in</Button></Link> */}
-                  <Link href={"/"} ><Button variant='filled'>Logout</Button></Link>
+                  <Link href={"/"} ><Button variant='outline' color='red' radius='xl'>Logout</Button></Link>
 
 
                 </Group>
@@ -268,7 +268,7 @@ export default function Layout({ children }) {
 
                 <Group justify="center" grow px="md">
                   {/* <Button variant="default">Log in</Button> */}
-                  <Button>Logout</Button>
+                  <Button variant='outline' color='red' radius='xl'>Logout</Button>
                 </Group>
               </ScrollArea>
             </Drawer>
@@ -281,6 +281,8 @@ export default function Layout({ children }) {
       </AppShell.Navbar>
       <AppShell.Main>
         <Guides selGuide={selGuide} />
+        
+
       </AppShell.Main>
     </AppShell>
 

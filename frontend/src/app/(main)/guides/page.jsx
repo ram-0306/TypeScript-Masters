@@ -1,5 +1,5 @@
 'use client';
-import { Title } from '@mantine/core';
+import { BackgroundImage, Title } from '@mantine/core';
 import React, { useEffect, useRef, useState } from 'react';
 import EditorJS from "@editorjs/editorjs";
 import Header from '@editorjs/header';
@@ -63,9 +63,7 @@ const Guides = ({ selGuide }) => {
 
 
   return (
-    <div>
-     
-
+    <BackgroundImage style={{height: '100vh'}} src ='guides.png' alt='guides image'>
 
       {
         selGuide !== null ? (
@@ -78,7 +76,7 @@ const Guides = ({ selGuide }) => {
         )
      }
     
-  </div>
+  </BackgroundImage>
   
 )
 }

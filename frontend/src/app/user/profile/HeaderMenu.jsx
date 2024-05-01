@@ -150,7 +150,7 @@ const HomeHeader = () => {
 
           <Group visibleFrom="sm">
 
-            <Link href={"/signup"} ><Button>Sign up</Button></Link>
+            <Link href={"/"}  ><Button variant='outline' color='red' radius='xl' >Logout</Button></Link>
          
            
           </Group>
