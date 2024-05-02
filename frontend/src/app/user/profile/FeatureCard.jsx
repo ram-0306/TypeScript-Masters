@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Image, Text, Box, Stack, rem, Group, Badge, Center, Button, TextInput, Select, Icon, FileInput, ActionIcon } from '@mantine/core';
-import { IconSun, IconPhone, IconMapPin, IconAt, IconUser, IconUpload } from '@tabler/icons-react';
+import { IconSun, IconPhone, IconMapPin, IconAt, IconUser, IconUpload, IconHome } from '@tabler/icons-react';
 import classes from './FeaturesCard.module.css';
 import { Formik } from 'formik';
 import { useForm } from '@mantine/form';
@@ -140,32 +140,36 @@ const FeatureCard = () => {
           <Text fz="sm" c="dimmed" className={classes.label}>
             Contact Information
           </Text>
-          <Group justify="start" gap="md">
-            {contactInfo.map((info) => (
-              <div key={info.label}>
-                <Text fw={500} size="sm">
-                  {info.label}:
-                </Text>
-                {isEditing ? (
-                  <TextInput
-                    value={info.value}
-                    onChange={(event) => {
-                      const updatedInfo = [...contactInfo];
-                      const index = updatedInfo.findIndex((item) => item.label === info.label);
-                      updatedInfo[index].value = event.target.value;
-                      setContactInfo(updatedInfo);
-                    }}
-                    size="xs"
-                    radius="sm"
-                    placeholder={`Enter your ${info.label.toLowerCase()}`}
-                    icon={<IconAt />}
-                  />
-                ) : (
-                  <Text size="sm">{info.value}</Text>
-                )}
-              </div>
-            ))}
+          
+          <Group>
+          {isEditing ? (
+            <TextInput
+              fullWidth
+              mb={10}
+              {...userForm.getInputProps('phone')}
+              size="xs"
+              radius="sm"
+              placeholder="Phone"
+              icon={<IconPhone />}
+            />
+          ) : (
+            <Text fz="xs" c="dimmed">{currentUser.phone}</Text>
+          )}
+          {isEditing ? (
+            <TextInput
+              fullWidth
+              mb={10}
+              {...userForm.getInputProps('address')}
+              size="xs"
+              radius="sm"
+              placeholder="Address"
+              icon={<IconHome />}
+            />
+          ) : (
+            <Text fz="xs" c="dimmed">{currentUser.address}</Text>
+          )}
           </Group>
+
         </Card.Section>
 
         {
