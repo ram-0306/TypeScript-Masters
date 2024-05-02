@@ -31,6 +31,7 @@ import {
 } from '@tabler/icons-react';
 import classes from './homeheader.module.css';
 import Link from 'next/link';
+import ActionToggle from './(main)/Action/page';
 
 
 const mockdata = [
@@ -151,6 +152,7 @@ const HomeHeader = () => {
 
             <Link href={"/login"}><Button variant="default">Log in</Button></Link>
             <Link href={"/signup"} ><Button>Sign up</Button></Link>
+            <ActionToggle />
          
            
           </Group>

@@ -22,11 +22,11 @@ const  Home = () => {
     <>
       <HomeHeader />
       <div className={classes.hero}>
-        <Overlay
+        {/* <Overlay
           gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, .65) 40%)"
           opacity={1}
           zIndex={0}
-        />
+        /> */}
         <Container className={classes.container} size="md">
           <Title className={classes.title}>Unlock the power of TypeScript with TypeScript Masters</Title>
           <Text className={classes.description} size="xl" mt="xl">
