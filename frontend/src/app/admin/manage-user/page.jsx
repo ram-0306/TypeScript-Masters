@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import { Avatar, Badge, Table, Group, Text, ActionIcon, Anchor, rem, Button } from '@mantine/core';
+import { Avatar, Badge, Table, Group, Text, ActionIcon, Anchor, rem, Button, Container } from '@mantine/core';
 import { IconPencil, IconPlus, IconTrash } from '@tabler/icons-react';
 
 const data = [
@@ -94,8 +94,8 @@ const ManageUser = () => {
         <Table verticalSpacing="md">
           <Table.Thead>
             <Table.Tr>
-              <Table.Th>Users</Table.Th>
-              <Table.Th>Mail</Table.Th>
+              <Table.Th>User</Table.Th>
+              <Table.Th>Email</Table.Th>
               <Table.Th>Password</Table.Th>
               <Table.Th>Action</Table.Th>
               <Table.Th />
@@ -110,8 +110,8 @@ const ManageUser = () => {
                     <Table.Td>{user.email}</Table.Td>
                     <Table.Td>{user.password}</Table.Td>
                     <Table.Td>
-                    <Button justify="center"  variant="gradient"
-                    gradient={{ from: 'red', to: 'cyan', deg: 90 }}
+                    <Button justify="center" variant="gradient"
+                    gradient={{ from: 'blue', to: 'cyan', deg: 90 }} 
                     onClick={() => deleteUser(user._id)}
                   >
                     Delete
@@ -166,11 +166,13 @@ const ManageUser = () => {
   ));
 
   return (
-    <div style={{ marginTop: '100px' }}>
+    <Container>
+    <div style={{ marginTop: '50px' }}>
       {
         displayUser()
       }
     </div>
+    </Container>
   );
 }
 

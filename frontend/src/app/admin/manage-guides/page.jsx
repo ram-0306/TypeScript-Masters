@@ -48,7 +48,7 @@ const ManageGuides = () => {
 
   const displayGuides = () => {
     return guidesList.map(guide => (
-      <Card shadow="sm" padding="lg" radius="md" withBorder >
+      <Card shadow="sm" padding="lg" radius="md" withBorder>
 
 
         <Group justify="space-between" mt="md" mb="xs">
