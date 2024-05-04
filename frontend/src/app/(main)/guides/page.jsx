@@ -63,8 +63,8 @@ const Guides = ({ selGuide }) => {
 
 
   return (
-    <BackgroundImage style={{height: '100vh'}} src ='guides.png' alt='guides image'>
-
+    <div>
+   
       {
         selGuide !== null ? (
           <>
@@ -76,7 +76,7 @@ const Guides = ({ selGuide }) => {
         )
      }
     
-  </BackgroundImage>
+     </div>
   
 )
 }
