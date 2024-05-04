@@ -11,7 +11,7 @@ import en from 'javascript-time-ago/locale/en'
 
 TimeAgo.addDefaultLocale(en)
 
-const result = useTimeAgo(parameters)
+// const result = useTimeAgo(parameters)
 
 const ViewQuestion = () => {
 
