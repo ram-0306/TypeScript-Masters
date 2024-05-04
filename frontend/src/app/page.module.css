@@ -1,15 +1,15 @@
 .hero {
   position: relative;
-  /* background-image: url(https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/1283901/regular_1708x683_cover-0326-single-responsibility-principle-Waldek_Newsletter-77945de592c7da9204df01a390cfd43d.png); */
+   background-image: url(https://media.licdn.com/dms/image/D4D12AQFQnUtRwusynA/article-cover_image-shrink_720_1280/0/1689163744749?e=2147483647&v=beta&t=GzsbtyZ6NgtHraG7IFsVBd_-hEbhXfZPjMY5M4Op0Nk); 
   /* background: rgb(116,254,255); */
   /* background: radial-gradient(circle, rgb(117, 255, 255) 70%, rgb(92, 198, 255) 80%); */
-  background-image: linear-gradient(to left, #051937, #00466d, #007aa1, #00b1cc, #12ebeb);
+  /* background-image: linear-gradient(to left, #051937, #00466d, #007aa1, #00b1cc, #12ebeb); */
   /* background-image: linear-gradient(to left bottom, #483df2, #0076ff, #009eff, #00bfff, #00dcff, #00e8fe, #00f4f9, #00fff0, #00ffe7, #00ffdd, #00ffd3, #09ffc7); */
   
 
 
-  /* background-size: cover;
-  background-position: center; */
+  background-size: cover;
+  background-position: center; 
 }
 
 .container {
