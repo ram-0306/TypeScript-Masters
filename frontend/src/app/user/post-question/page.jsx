@@ -1,6 +1,6 @@
 'use client'
 import { Editor } from '@monaco-editor/react';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Paper,
   Title,
@@ -14,7 +14,10 @@ import { enqueueSnackbar } from 'notistack';
 import { useForm } from '@mantine/form';
 import { code } from '@uiw/react-md-editor';
 
-const postQuestion = () => {
+const PostQuestion = () => {
+  
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
+  
   const quesForm = useForm({
     initialValues: {
       title: '',
@@ -22,6 +25,7 @@ const postQuestion = () => {
       category: '',
       tags: [],
       code: '',
+      user: currentUser._id
     }
   });
 
@@ -98,4 +102,4 @@ const postQuestion = () => {
   );
 }
 
-export default postQuestion
+export default PostQuestion;

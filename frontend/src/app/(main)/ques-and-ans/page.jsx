@@ -11,7 +11,10 @@ const QuesAndAns = () => {
   const fetchQuestions = () => {
     fetch('http://localhost:5000/question/getall')
       .then(response => response.json())
-      .then(data => setQuestionList(data))
+      .then(data => {
+        console.log(data);
+        setQuestionList(data)
+      })
   }
 
   useEffect(() => {
