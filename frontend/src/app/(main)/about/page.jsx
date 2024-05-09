@@ -12,14 +12,17 @@ import {
 } from '@mantine/core';
 import { IconGauge, IconUser, IconCookie } from '@tabler/icons-react';
 import classes from './about.module.css';
+import Link from 'next/link';
 
 
 const mockdata = [
   {
     title: 'Seamless Transition',
     description:
-      'Effortlessly convert your existing JavaScript projects into TypeScript with our user-friendly conversion tools and streamlined process. Say goodbye to compatibility issues and hello to enhanced code maintainability and productivity.',
+      'Effortlessly convert your existing JavaScript projects into TypeScript with our user-friendly conversion tools and streamlined process.',
     icon: IconGauge,
+    url:'/playground'
+  
   },
   {
     title: 'Enhancing Proficiency',
@@ -38,7 +41,8 @@ const mockdata = [
 const About = ()=> {
   const theme = useMantineTheme();
   const features = mockdata.map((feature) => (
-    <Card key={feature.title} shadow="md" radius="md" className={classes.card} padding="xl">
+<a href={feature.url}key={feature.title}  >
+    <Card   shadow="md" radius="md" className={classes.card} padding="xl" >
       <feature.icon
         style={{ width: rem(50), height: rem(50) }}
         stroke={2}
@@ -51,6 +55,7 @@ const About = ()=> {
         {feature.description}
       </Text>
     </Card>
+    </a>
   ));
 
   return (

@@ -121,6 +121,9 @@ const Login = () => {
                   <Anchor component={Link} href={'/signup'} type="button" c="dimmed" size="xs">
                     Don't have an account? Register
                   </Anchor>
+                  <Anchor component={Link} href={'/reset-password'} type="button" c="dimmed" size="xs">
+                   Forgot Password ?
+                  </Anchor>
                   <Button type="submit" radius="xl">
                     Login
                   </Button>

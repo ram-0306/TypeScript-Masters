@@ -22,19 +22,11 @@ const  Home = () => {
     <>
       <HomeHeader />
       <div className={classes.hero}>
-<<<<<<< HEAD
-        <Overlay
-          gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, .65) 40%)"
-          opacity={.8}
-          zIndex={0}
-        />
-=======
         { <Overlay
           gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, .65) 40%)"
           opacity={0.8}
           zIndex={0}
         /> }
->>>>>>> 88a14254b52312f2240237fa1f60a93a8a8db4b8
         <Container className={classes.container} size="md">
           <Title className={classes.title}>Unlock the power of TypeScript with TypeScript Masters</Title>
           <Text className={classes.description} size="xl" mt="xl">
