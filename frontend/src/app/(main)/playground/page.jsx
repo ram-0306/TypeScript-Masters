@@ -2,6 +2,7 @@
 import { Button, Container, Grid, NativeSelect, Text, Title } from '@mantine/core'
 import { Editor } from '@monaco-editor/react'
 import React, { useState } from 'react'
+import classes from './page.module.css'
 
 const Playground = () => {
 
@@ -50,9 +51,9 @@ const Playground = () => {
 
 
     return (
-        <div>
-            <Container>
-                <Title order={1} size="h1" my={30} ta={'center'}>TypeScript Playground</Title>
+        <div className={classes.bg}  height='100vh'>
+            <Container  >
+                <Title order={1} size="h1" ta={'center'}>TypeScript Playground</Title>
 
 
                 <Grid>
@@ -60,14 +61,14 @@ const Playground = () => {
                     <Grid.Col span={{ md: 6 }}>
 
                         <NativeSelect value={inputLanguage} onChange={e => setInputLanguage(e.target.value)} radius="md" label="Language" description="Select language" data={['JavaScript', 'TypeScript', 'Python']} mb={30} />
-                        <Editor language={inputLanguage.toLowerCase()} theme='vs-dark' height={'50vh'} value={inputCode} onChange={setInputCode} />
+                        <Editor language={inputLanguage.toLowerCase()} theme="vs-dark" height={'65vh'} value={inputCode} onChange={setInputCode}  />
 
                     </Grid.Col>
 
                     <Grid.Col span={{ md: 6 }}>
 
                         <NativeSelect value={outputLanguage} onChange={e => setOutputLanguage(e.target.value)} radius="md" label="Language" description="Select language" data={['JavaScript', 'Java', 'TypeScript']} mb={30} />
-                        <Editor language={outputLanguage.toLowerCase()} theme='vs-dark' height={'50vh'} value={outputCode} onChange={setOutputCode} />
+                        <Editor language={outputLanguage.toLowerCase()} theme='vs-dark' height={'65vh'} value={outputCode} onChange={setOutputCode} />
 
                     </Grid.Col>
 
