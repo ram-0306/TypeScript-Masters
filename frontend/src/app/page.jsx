@@ -7,6 +7,9 @@ import Faq from './user/faq/page';
 import React from 'react'; // Don't forget to import React
 // import HomeHeader from './HomeHeader';
 import Link from 'next/link';
+import { NavbarLinksGroup } from './(main)/guides/NavbarLinksGroup/NavbarLinksGroup';
+import HomeHeader from './(main)/HomeHeader';
+
 
 
 
@@ -20,6 +23,7 @@ const  Home = () => {
 
   return (
     <>
+    <HomeHeader />
       <div className={classes.hero}>
         { <Overlay
           gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, .65) 40%)"

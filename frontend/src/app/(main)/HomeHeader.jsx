@@ -31,7 +31,8 @@ import {
 } from '@tabler/icons-react';
 import classes from './homeheader.module.css';
 import Link from 'next/link';
-import ActionToggle from './(main)/Action/page';
+import ActionToggle from './Action/page';
+import Features from '../Features';
 
 
 const mockdata = [
@@ -114,7 +115,7 @@ const HomeHeader = () => {
               <HoverCard.Dropdown style={{ overflow: 'hidden' }}>
                 <Group justify="space-between" px="md">
                   <Text fw={500}>Features</Text>
-                  <Anchor href="#" fz="xs">
+                  <Anchor  fz="xs" component={Link} href='/'>
                     View all
                   </Anchor>
                 </Group>
@@ -128,10 +129,10 @@ const HomeHeader = () => {
                 <div className={classes.dropdownFooter}>
                   <Group justify="space-between">
                     <div>
-                      <Text fw={500} fz="sm">
+                      <Text component={Link} href="/signup" fw={500} fz="sm">
                         Get started
                       </Text>
-                      <Text size="xs" c="dimmed">
+                      <Text size="xs" c="dimmed"  >
                         Start your TypeScript journey here...
                       </Text>
                     </div>
@@ -140,11 +141,11 @@ const HomeHeader = () => {
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
-            <a href="#" className={classes.link}>
-              Learn
+            <a href="/guides" className={classes.link}>
+              Documentation
             </a>
-            <a href="#" className={classes.link}>
-              Academy
+            <a href="/playground" className={classes.link}>
+              Playground
             </a>
           </Group>
 

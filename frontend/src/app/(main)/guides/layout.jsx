@@ -39,6 +39,7 @@ import {
   IconChevronDown,
 } from '@tabler/icons-react';
 import classess from './homeheader.module.css';
+import useAppContext from '@/app/context/AppContext';
 
 //
 
@@ -140,6 +141,8 @@ export default function Layout({ children }) {
     fetchGuidesData();
   }, [])
 
+  const {logout} = useAppContext();
+
   return (
 
     <AppShell
@@ -223,7 +226,7 @@ export default function Layout({ children }) {
                 <Group visibleFrom="sm">
 
                   {/* <Link href={"/login"}><Button variant="default">Log in</Button></Link> */}
-                  <Link href={"/"} ><Button variant='outline' color='red' radius='xl'>Logout</Button></Link>
+                  <Link href={"/"} ><Button variant='outline' color='red' radius='xl' onClick={logout}>Logout</Button></Link>
 
 
                 </Group>
