@@ -6,25 +6,25 @@ import Link from 'next/link';
 const features = [
   {
     icon: IconReceiptOff,
-    title: 'Free and open source',
-    description: 'All packages are published under MIT license, you can use Mantine in any project',
+    title: 'Seamless Transition',
+    description: 'Effortlessly convert your existing JavaScript projects into TypeScript with our user-friendly conversion tools'
   },
   {
     icon: IconFileCode,
-    title: 'TypeScript based',
-    description: 'Build type safe applications, all components and hooks export types',
+    title: 'Documentation',
+    description: 'Comprehensive documentation covering TypeScript concepts, features, and best practices for effective learning and reference.',
   },
   {
     icon: IconCircleDotted,
-    title: 'No annoying focus ring',
+    title: 'Q and A support',
     description:
-      'With new :focus-visible selector focus ring will appear only when user navigates with keyboard',
+      'Interactive Q&A support to address user queries, troubleshoot issues, and foster community engagement for enhanced learning and collaboration..',
   },
   {
     icon: IconFlame,
-    title: 'Flexible',
+    title: 'Free For Everyone',
     description:
-      'Customize colors, spacing, shadows, fonts and many other settings with global theme object',
+      'Accessible to everyone at no cost, ensuring inclusivity and equal opportunity for learning TypeScript',
   },
 ];
 
@@ -57,11 +57,10 @@ export default function Features() {
       <Grid gutter={80}>
         <Grid.Col span={{ base: 12, md: 5 }}>
           <Title className={classes.title} order={2}>
-            A fully featured React components library for your next project
+          TypeScript Masters: bridging the gap between creativity and certainty in code.
           </Title>
           <Text c="dimmed">
-            Build fully functional accessible web applications faster than ever – Mantine includes
-            more than 120 customizable components and hooks to cover you in any situation
+          TypeScript: where the fluidity of JavaScript meets the solidity of types, crafting code that dances elegantly between innovation and reliability.
           </Text>
 
           <Button component={Link} href="/about"

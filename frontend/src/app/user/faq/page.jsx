@@ -4,7 +4,10 @@ import { Image, Accordion, Grid, Container, Title } from '@mantine/core';
 import classes from './faq.module.css';
 
 const placeholder =
-  'It can’t help but hear a pin drop from over half a mile away, so it lives deep in the mountains where there aren’t many people or Pokémon.';
+  '  Yes, TypeScript is fully compatible with JavaScript, meaning you can gradually adopt TypeScript into your existing projects without having to rewrite all your code.';
+const placeholder2 = 'Yes, you can! Our website is fully optimized for mobile devices, making it convenient for you to access TypeScript resources on the move. Happy exploring!';
+const placeholder3 ='Stay in the loop effortlessly! Simply register your email with us, and we will ensure you are the first to know about exciting updates, fresh content, and innovative features added to our website. Your inbox is about to become a treasure trove of TypeScript knowledge!'; 
+const placeholder4 = 'No restrictions here! Dive right in and unleash the power of our TypeScript conversion tools without any limitations. Get ready to transform your JavaScript code seamlessly into TypeScript with ease. Let your coding journey begin without bounds!';
 
 const Faq=()=> {
   return (
@@ -21,25 +24,25 @@ const Faq=()=> {
 
             <Accordion chevronPosition="right" defaultValue="reset-password" variant="separated">
               <Accordion.Item className={classes.item} value="reset-password">
-                <Accordion.Control>How can I reset my password?</Accordion.Control>
+                <Accordion.Control> Can I use TypeScript with existing JavaScript code?</Accordion.Control>
                 <Accordion.Panel>{placeholder}</Accordion.Panel>
               </Accordion.Item>
 
               <Accordion.Item className={classes.item} value="another-account">
-                <Accordion.Control>Can I create more that one account?</Accordion.Control>
-                <Accordion.Panel>{placeholder}</Accordion.Panel>
+                <Accordion.Control>Can I access your website's resources on mobile devices?</Accordion.Control>
+                <Accordion.Panel>{placeholder2}</Accordion.Panel>
               </Accordion.Item>
 
               <Accordion.Item className={classes.item} value="newsletter">
-                <Accordion.Control>How can I subscribe to monthly newsletter?</Accordion.Control>
-                <Accordion.Panel>{placeholder}</Accordion.Panel>
+                <Accordion.Control>How can I stay updated on new features and content added to your website?</Accordion.Control>
+                <Accordion.Panel>{placeholder3}</Accordion.Panel>
               </Accordion.Item>
 
               <Accordion.Item className={classes.item} value="credit-card">
                 <Accordion.Control>
-                  Do you store credit card information securely?
+                Are there any restrictions or limitations on using the TypeScript conversion tools on your website?
                 </Accordion.Control>
-                <Accordion.Panel>{placeholder}</Accordion.Panel>
+                <Accordion.Panel>{placeholder4}</Accordion.Panel>
               </Accordion.Item>
             </Accordion>
           </Grid.Col>
