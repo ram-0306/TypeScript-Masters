@@ -5,7 +5,7 @@ import Footer from './Footer';
 import Features from './Features';
 import Faq from './user/faq/page';
 import React from 'react'; // Don't forget to import React
-import HomeHeader from './HomeHeader';
+// import HomeHeader from './HomeHeader';
 import Link from 'next/link';
 
 
@@ -20,7 +20,6 @@ const  Home = () => {
 
   return (
     <>
-      <HomeHeader />
       <div className={classes.hero}>
         { <Overlay
           gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, .65) 40%)"
