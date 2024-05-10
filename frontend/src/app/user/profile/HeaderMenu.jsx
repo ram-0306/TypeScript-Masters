@@ -32,6 +32,7 @@ import {
 } from '@tabler/icons-react';
 import classes from './HeaderMenu.module.css';
 import Link from 'next/link';
+import useAppContext from '@/app/context/AppContext';
 
 
 const mockdata = [
@@ -62,6 +63,7 @@ const mockdata = [
 ];
 
 const HomeHeader = () => {
+  const { logout } = useAppContext();
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const theme = useMantineTheme();
@@ -150,7 +152,7 @@ const HomeHeader = () => {
 
           <Group visibleFrom="sm">
 
-            <Link href={"/"}  ><Button variant='outline' color='red' radius='xl' >Logout</Button></Link>
+            <Link href={"/"}  ><Button onClick={logout} variant='outline' color='red' radius='xl' >Logout</Button></Link>
          
            
           </Group>
