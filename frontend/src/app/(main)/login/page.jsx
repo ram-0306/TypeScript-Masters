@@ -99,7 +99,7 @@ const Login = () => {
                   <TextInput
                     required
                     label="Email"
-                    placeholder="hello@mantine.dev"
+                    placeholder="Enter your email"
                     value={form.values.email}
                     onChange={(event) => form.setFieldValue('email', event.currentTarget.value)}
                     error={form.errors.email && 'Invalid email'}

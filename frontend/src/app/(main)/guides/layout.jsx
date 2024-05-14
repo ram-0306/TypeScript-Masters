@@ -41,10 +41,9 @@ import {
 import classess from './homeheader.module.css';
 import useAppContext from '@/app/context/AppContext';
 
-//
 
 
-//
+
 const mockdata = [
   {
     icon: IconCode,
@@ -142,6 +141,7 @@ export default function Layout({ children }) {
   }, [])
 
   const {logout} = useAppContext();
+  const { loggedIn, currentUser } = useAppContext();
 
   return (
 
@@ -226,9 +226,18 @@ export default function Layout({ children }) {
                 <Group visibleFrom="sm">
 
                   {/* <Link href={"/login"}><Button variant="default">Log in</Button></Link> */}
-                  <Link href={"/"} ><Button variant='outline' color='red' radius='xl' onClick={logout}>Logout</Button></Link>
+{/* 
+                  {
+        loggedIn &&
+        <div className={classes.footer}>
+          <UserButton user={currentUser} />
+        </div>
+      } */}
+                 {  
+                  loggedIn &&  
+                  <Link user={currentUser} href={"/"} ><Button variant='outline' color='red' radius='xl' onClick={logout}>Logout</Button></Link>
 
-
+                 }
                 </Group>
 
                 <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />

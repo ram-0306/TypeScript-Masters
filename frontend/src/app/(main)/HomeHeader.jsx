@@ -33,6 +33,7 @@ import classes from './homeheader.module.css';
 import Link from 'next/link';
 import ActionToggle from './Action/page';
 import Features from '../Features';
+import Image from 'next/image';
 
 
 const mockdata = [
@@ -44,9 +45,9 @@ const mockdata = [
   },
   {
     icon: IconCoin,
-    title: 'Free for everyone',
+    title: 'Feedback Driven',
     description: 'Accessible to everyone at no cost, ensuring inclusivity and equal opportunity for learning TypeScript.',
-    url: '/features',
+    url: '/feedback',
   },
   {
     icon: IconBook,
@@ -58,6 +59,7 @@ const mockdata = [
     icon: IconFingerprint,
     title: 'Q/A Support',
     description: 'Interactive Q&A support to address user queries, troubleshoot issues, and foster community engagement for enhanced learning and collaboration..',
+    url: '/ques-and-ans',
   },
 
 ];
@@ -89,12 +91,15 @@ const HomeHeader = () => {
 
   return (
     <Box>
-      <header className={classes.header}>
+      <header className={classes.header} >
+   
+    {/* <Image src="/file.png" alt="TypeScript Masters" width={80} height={60} /> */}
         <Group justify="space-between" h="100%">
-          <Title order={3}>TypeScript Masters</Title>
+
+        <Title order={3}>TypeScript Masters</Title>
 
           <Group h="100%" gap={0} visibleFrom="sm">
-            <a href="#" className={classes.link}>
+            <a href="/" className={classes.link}>
               Home
             </a>
             <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>

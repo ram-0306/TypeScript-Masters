@@ -61,7 +61,7 @@ const Signup = () => {
 
   return (
     <div>
-    <Container size="md">
+    <Container size="lg">
     <Flex
           mih={50}
           gap="lg"
@@ -89,7 +89,7 @@ const Signup = () => {
             <TextInput
               required
               label="Name"
-              placeholder="ayushsingh"
+              placeholder="Your name"
               id="name"
               value={form.values.name}
               onChange={(event) => form.setFieldValue('name', event.currentTarget.value)}
@@ -100,7 +100,7 @@ const Signup = () => {
             <TextInput
               required
               label="Email"
-              placeholder="ayush123@gmail.com"
+              placeholder="Your email"
               id="email"
               value={form.values.email}
               onChange={(event) => form.setFieldValue('email', event.currentTarget.value)}
@@ -148,7 +148,7 @@ const Signup = () => {
       </Paper>
       </div>
       <div>
-        <Image src="/signup-img.svg" alt="Signup Image"
+        <Image src="/signup-img.jpg" alt="Signup Image"
           h={500}
           w="auto"
           fit="cover"

@@ -9,6 +9,7 @@ import React from 'react'; // Don't forget to import React
 import Link from 'next/link';
 import { NavbarLinksGroup } from './(main)/guides/NavbarLinksGroup/NavbarLinksGroup';
 import HomeHeader from './(main)/HomeHeader';
+import About from './(main)/about/page';
 
 
 
@@ -44,6 +45,7 @@ const  Home = () => {
       <Features />
      
       <Faq />
+      <About />
       <Footer/>
     </>
   );

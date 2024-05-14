@@ -3,7 +3,7 @@ import "./globals.css";
 import { MantineProvider, createTheme } from "@mantine/core";
 import '@mantine/core/styles.css';
 import './(main)/HomeHeader';
-import HomeHeader from "./(main)/HomeHeader";
+// import HomeHeader from "./(main)/HomeHeader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +19,21 @@ const theme = createTheme({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      
+
+      <head>
+
+        <link
+          rel="icon"
+          href="/file.png"
+          // href="/TMlogo.png"
+          type="image/png"
+          sizes="40x40"
+        />
+      </head>
+
       <body className={inter.className}>
         <MantineProvider theme={theme} defaultColorScheme="dark">
-     
+
           {children}
         </MantineProvider>
       </body>

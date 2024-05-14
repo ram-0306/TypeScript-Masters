@@ -2,6 +2,7 @@
 import { Text, Avatar, Group, TypographyStylesProvider, Paper } from '@mantine/core';
 import classes from './user-feedback.module.css';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 
 const userFeedback=()=> {
@@ -30,14 +31,18 @@ const userFeedback=()=> {
             src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-2.png"
             alt="Jacob Warnhalter"
             radius="xl"
+            component={Link}
+            href='/user/profile'
+
           />
         
           <div>
-            <Text fz="sm">  {feed.name}</Text>
-            <Text fz="sm">  {feed.email}</Text>
-            <Text fz="xs" c="dimmed">
+          <Text fz="sm" >
             {feed.message}
             </Text>
+           {/* <Text fz="sm">  {feed.name}</Text> */}
+            <Text fz="xs" c="dimmed">  {feed.email}</Text>
+           
           </div>
         </Group>
         )
@@ -49,7 +54,7 @@ const userFeedback=()=> {
           className={classes.content}
           dangerouslySetInnerHTML={{
             __html:
-              '<p>I am from <a href="https://heroku.com/" rel="noopener noreferrer" target="_blank">RCB</a> and i want to say,  <strong>ee sala cup namde!!</strong>. It will be my first IPL title <a href="https://www.digitalocean.com/" rel="noopener noreferrer" target="_blank">BCCI</a> will select me for T2O WC.</p>',
+              '<p></p>',
           }}
         />
       </TypographyStylesProvider>

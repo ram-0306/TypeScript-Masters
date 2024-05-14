@@ -44,13 +44,14 @@ const feedback = () => {
           });
       })}>
         <Title
-          order={2}
+          order={1}
           size="h1"
           style={{ fontFamily: 'Greycliff CF, var(--mantine-font-family)' }}
           fw={900}
           ta="center"
+          mt={20}
         >
-          Get in touch
+          Feedback
         </Title>
 
         <SimpleGrid cols={{ base: 1, sm: 2 }} mt="xl">
