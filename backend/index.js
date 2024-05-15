@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+
 const port = 5000;
 
 //initialize
@@ -14,11 +15,16 @@ const utilRouter = require('./routers/utilRouter')
 const answerRouter = require('./routers/answerRouter');
 const commentRouter = require('./routers/commentRouter');
 
+
+
 //middleware
 
 app.use(cors({
     origin: ['http://localhost:3000']
 }));
+
+
+
 
 app.use(express.json());
 

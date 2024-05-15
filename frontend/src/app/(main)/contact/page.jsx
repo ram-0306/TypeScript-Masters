@@ -6,7 +6,7 @@ import bg from './bg.svg';
 
 const Contact = () => {
   return (
-    <Container>
+    <Container my={20}>
       <Paper shadow="md" radius="lg" style={{ position: 'relative', zIndex: 1 }}>
           
         <div className={classes.wrapper}>

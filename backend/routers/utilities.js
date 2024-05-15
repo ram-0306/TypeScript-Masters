@@ -18,6 +18,16 @@ const ts = require('typescript');
 
 
 
+//function convertJsToTs(jsCode) {
+   // const tsFilename = 'temp.ts'; // Temporary filename for conversion
+    //fs.writeFileSync(tsFilename, jsCode); // Write JS code to temporary file
+
+    //const output = require('child_process').execSync(tsc ${tsFilename}); // Execute tsc
+    // fs.unlinkSync(tsFilename); // Delete temporary file
+
+    //return output.toString(); // Return converted TypeScript code
+//}
+
 
 
 function convertTsToJs(tsCode) {
@@ -34,7 +44,7 @@ function convertTsToJs(tsCode) {
     return result.outputText;
 }
 
-// let result = convertTsToJs(`const x:Number = 10;`) // Returns `const x: number = 10;`
+// let result = convertTsToJs(const x:Number = 10;) // Returns const x: number = 10;
 // console.log(result);
 
-module.exports = { convertJsToTs, convertTsToJs };
+module.exports = { convertJsToTs, convertTsToJs };

@@ -35,6 +35,7 @@ import {
 import classes from './navbar.module.css';
 import Link from 'next/link';
 import { IconUser } from '@tabler/icons-react';
+import ActionToggle from '../(main)/Action/page';
 
 
 // const mockdata = [
@@ -89,11 +90,12 @@ const Navbar = () =>  {
             <a component={Link} href='./manage-guides' className={classes.link}>
               Manage Guides
             </a>
+        
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
           <Group>
-         
+          <ActionToggle />
         </Group>
         </Group>
         

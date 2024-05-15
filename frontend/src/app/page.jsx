@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { NavbarLinksGroup } from './(main)/guides/NavbarLinksGroup/NavbarLinksGroup';
 import HomeHeader from './(main)/HomeHeader';
 import About from './(main)/about/page';
+import Contact from './(main)/contact/page';
 
 
 
@@ -44,8 +45,9 @@ const  Home = () => {
       </div>
       <Features />
      
-      <Faq />
       <About />
+      <Contact />
+      <Faq />
       <Footer/>
     </>
   );

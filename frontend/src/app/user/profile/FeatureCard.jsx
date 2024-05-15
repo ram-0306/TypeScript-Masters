@@ -77,7 +77,7 @@ const FeatureCard = () => {
       });
   }
 
-  // const uploadAvatar = (file) => {}
+ 
 
   return (
     <Card withBorder radius="md" className={classes.card}>
