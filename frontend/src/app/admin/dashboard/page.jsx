@@ -540,8 +540,8 @@ const Admin = () => {
           <PieChart data={pieData} />
         </GridCol>
         <GridCol span={{ base: 12, md: 12 }} h={'40vh'}>
-          <LineChart data={data3} />
-        </GridCol>
+           <LineChart data={data3} />
+         </GridCol>
       </Grid>
 
     </Box>
